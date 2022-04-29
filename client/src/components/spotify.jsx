@@ -145,3 +145,4 @@ axios.defaults.headers["Content-Type"] = "application/json";
 
 // get current user userProfile
 export const getCurrentUserProfile = () => axios.get("/me");
+export const getTopArtists = (artist) => axios.get(`/me/top/${artist}`);

@@ -2,6 +2,8 @@ import "./App.css";
 import Login from "../src/components/Login";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Profile from "../src/components/profile/Profile";
+import TopArtists from "./components/topArtists/TopArtists";
 
 import {
   accessToken,
@@ -41,8 +43,7 @@ function App() {
         <>
           <button onClick={logout}>Log out</button>
           <h1>Logged in</h1>
-          <h2>{name}</h2>
-          <img src={picture}></img>
+          <Profile name={name} picture={picture} />
           <button
             onClick={() =>
               axios
@@ -54,6 +55,7 @@ function App() {
           >
             click here
           </button>
+          <TopArtists />
         </>
       )}
     </div>
