@@ -18,7 +18,7 @@ function App() {
     const fetchData = async () => {
       try {
         const { data } = await getCurrentUserProfile();
-        console.log(data);
+        console.log(data.images[0]);
         setProfile(data);
       } catch (err) {
         console.log(err);
@@ -36,6 +36,7 @@ function App() {
         <>
           <button onClick={logout}>Log out</button>
           <h1>Logged in</h1>
+          <img src={profile.images[0].url}></img>
         </>
       )}
     </div>
