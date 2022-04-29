@@ -75,9 +75,7 @@ app.get("/callback", (req, res) => {
 app.get("/refresh_token", (req, res) => {
   const { refresh_token } = req.query;
 
-  axios({
-    method: "post",
-    url: "https://accounts.spotify.com/api/token",
+  const options = {
     data: querystring.stringify({
       grant_type: "refresh_token",
       refresh_token,
@@ -88,7 +86,10 @@ app.get("/refresh_token", (req, res) => {
         client_id + ":" + client_secret
       ).toString("base64")}`,
     },
-  })
+  };
+
+  axios
+    .post("https://accounts.spotify.com/api/token", options)
     .then((response) => {
       res.send(response.data);
     })

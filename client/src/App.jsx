@@ -12,6 +12,8 @@ import {
 function App() {
   const [token, setToken] = useState(null);
   const [profile, setProfile] = useState(null);
+  const [name, setName] = useState(null);
+  const [picture, setPicture] = useState(null);
 
   useEffect(() => {
     setToken(accessToken);
@@ -21,6 +23,8 @@ function App() {
         const { data } = await getCurrentUserProfile();
         console.log(data);
         setProfile(data);
+        setName(data.display_name);
+        setPicture(data.images[0].url);
       } catch (err) {
         console.log(err);
       }
@@ -37,8 +41,8 @@ function App() {
         <>
           <button onClick={logout}>Log out</button>
           <h1>Logged in</h1>
-          <h2>{profile.display_name}</h2>
-          <img src={profile.images[0].url}></img>
+          <h2>{name}</h2>
+          <img src={picture}></img>
           <button
             onClick={() =>
               axios
