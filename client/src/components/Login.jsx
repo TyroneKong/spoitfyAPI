@@ -5,8 +5,9 @@ const Login = () => {
     const querystring = window.location.search;
     const urlParams = new URLSearchParams(querystring);
     const accessToken = urlParams.get("access_token");
-    const refresh_token = urlParams.get("refresh_token");
-    console.log(accessToken);
+    const refreshToken = urlParams.get("refresh_token");
+    console.log(`accessToken: ${accessToken}`);
+    console.log(`refreshToken: ${refreshToken}`);
   }, []);
 
   return (
