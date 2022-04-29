@@ -2,6 +2,7 @@ import "./App.css";
 import Login from "../src/components/Login";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import {
   accessToken,
   logout,
@@ -18,7 +19,7 @@ function App() {
     const fetchData = async () => {
       try {
         const { data } = await getCurrentUserProfile();
-        console.log(data.images[0]);
+        console.log(data);
         setProfile(data);
       } catch (err) {
         console.log(err);
@@ -36,7 +37,19 @@ function App() {
         <>
           <button onClick={logout}>Log out</button>
           <h1>Logged in</h1>
+          <h2>{profile.display_name}</h2>
           <img src={profile.images[0].url}></img>
+          <button
+            onClick={() =>
+              axios
+                .get(profile.external_urls.spotify)
+                .then((response) =>
+                  console.log(response.data).catch((err) => console.log(err))
+                )
+            }
+          >
+            click here
+          </button>
         </>
       )}
     </div>

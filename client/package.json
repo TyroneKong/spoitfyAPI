@@ -2,7 +2,7 @@
   "name": "spotify",
   "private": true,
   "version": "0.0.0",
-  "proxy": "http://localhost:8888",
+  "proxy": "http://localhost:3003",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
