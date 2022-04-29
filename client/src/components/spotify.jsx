@@ -44,10 +44,14 @@ const refreshToken = async () => {
 
     //Uue /refresh token endpoint from our node app
     const { data } = await axios.get(
-      `/refresh_token>refresh_token=${LOCALSTORAGE_VALUES.refreshToken}`
+      `/refresh_token?refresh_token=${LOCALSTORAGE_VALUES.refreshToken}`
     );
 
     //Update localstorage values error
+    window.localStorage.setItem(
+      LOCALSTORAGE_VALUES.accessToken,
+      data.access_token
+    );
     window.localStorage.setItem(LOCALSTORAGE_KEYS.timestamp, Date.now());
 
     //Reload the page for localstorage updates to be reflected
