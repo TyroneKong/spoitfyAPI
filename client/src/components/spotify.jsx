@@ -3,17 +3,17 @@ import axios from "axios";
 const LOCALSTORAGE_KEYS = {
   accessToken: "spotify_access_token",
   refreshToken: "spotify_refresh_token",
-  expires_in: "spotify_expires_in",
-  timestamp: "spotify_timestamp",
+  expireTime: "spotify_token_expire_time",
+  timestamp: "spotify_token_timestamp",
 };
 
 // keys map
 
 const LOCALSTORAGE_VALUES = {
-  accessToken: window.localStorage.getItem(LOCALSTORAGE_KEYS, accessToken),
-  refreshToken: window.localStorage.getItem(LOCALSTORAGE_KEYS, refreshToken),
-  expires_in: window.localStorage.getItem(LOCALSTORAGE_KEYS, expiresTime),
-  timestamp: window.localStorage.getItem(LOCALSTORAGE_KEYS, timestamp),
+  accessToken: window.localStorage.getItem(LOCALSTORAGE_KEYS.accessToken),
+  refreshToken: window.localStorage.getItem(LOCALSTORAGE_KEYS.refreshToken),
+  expireTime: window.localStorage.getItem(LOCALSTORAGE_KEYS.expiresTime),
+  timestamp: window.localStorage.getItem(LOCALSTORAGE_KEYS.timestamp),
 };
 
 /**
@@ -26,7 +26,7 @@ const LOCALSTORAGE_VALUES = {
 export const logout = () => {
   //clear all localstorage items
 
-  for (const property in LOCALSTORAGE_KEYS[property]) {
+  for (const property in LOCALSTORAGE_KEYS) {
     window.localStorage.removeItem(LOCALSTORAGE_KEYS[property]);
   }
 
@@ -37,7 +37,7 @@ export const logout = () => {
 
 /** checks if the amount of time that has elapsed between the timestamp in localstorage
  * and now is greater than the expiration time of 3600 seconds (1 hour)
- * @returns {bollean} whether or not the access token in localstorage has expired
+ * @returns {boolean} whether or not the access token in localstorage has expired
  */
 
 const hasTokenExpired = () => {
