@@ -109,6 +109,24 @@ app.get("/refresh_token", (req, res) => {
     });
 });
 
+// app.get("/userProfile", (req, res) => {
+//   const { token_type, access_token } = req.query;
+//   res.send("test");
+
+//   //   axios
+//   //     .get("https://api.spotify.com/v1/me", {
+//   //       headers: {
+//   //         Authorization: `${token_type} ${access_token}`,
+//   //       },
+//   //     })
+//   //     .then((response) => {
+//   //       res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
+//   //     })
+//   //     .catch((err) => {
+//   //       res.send(err);
+//   //     });
+// });
+
 app.listen(PORT, (err) => {
   if (!err) {
     console.log(`Listening on port ${PORT}`);
