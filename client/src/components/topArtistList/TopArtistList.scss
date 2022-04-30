@@ -1,18 +1,16 @@
 .track {
   display: flex;
-
   background-color: rgb(26, 22, 22);
 
   &__image {
-    width: 15%;
+    width: 10%;
   }
   &__album {
     display: flex;
+    justify-content: flex-end;
   }
   &__artist {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: 150px;
   }
 }
 

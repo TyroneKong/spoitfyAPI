@@ -22,7 +22,6 @@ function TopArtistList({ data, currentTrack }) {
             <div className="track__artist">
               <h3 className="track__artist-name">{track.name}</h3>
               <p className="track__artist">{track.artists[0].name}</p>
-              <p>{track.album.name}</p>
             </div>
           </div>
         );
