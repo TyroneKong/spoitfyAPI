@@ -1,7 +1,15 @@
 .track {
   display: flex;
+  border: 2px solid red;
 
   &__image {
     width: 10%;
+  }
+  &__album {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__artist {
+    width: 150px;
   }
 }

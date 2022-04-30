@@ -16,6 +16,7 @@ function App() {
   const [profile, setProfile] = useState(null);
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
+  const [followers, setFollowers] = useState(null);
 
   useEffect(() => {
     setToken(accessToken);
@@ -23,10 +24,11 @@ function App() {
     const fetchData = async () => {
       try {
         const { data } = await getCurrentUserProfile();
-        console.log(data);
+        console.log(data.followers.total);
         setProfile(data);
         setName(data.display_name);
         setPicture(data.images[0].url);
+        setFollowers(data.followers.total);
       } catch (err) {
         console.log(err);
       }
@@ -43,18 +45,8 @@ function App() {
         <>
           <button onClick={logout}>Log out</button>
           <h1>Logged in</h1>
-          <Profile name={name} picture={picture} />
-          <button
-            onClick={() =>
-              axios
-                .get(profile.external_urls.spotify)
-                .then((response) =>
-                  console.log(response.data).catch((err) => console.log(err))
-                )
-            }
-          >
-            click here
-          </button>
+          <Profile name={name} picture={picture} followers={followers} />
+
           <TopArtists />
         </>
       )}

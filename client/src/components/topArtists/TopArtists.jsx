@@ -5,9 +5,9 @@ import TopArtistList from "../topArtistList/TopArtistList";
 function TopArtists() {
   const [tracks, setTracks] = useState([]);
 
-  const handleClick = () => {
+  useEffect(() => {
     fetchData();
-  };
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -22,7 +22,6 @@ function TopArtists() {
 
   return (
     <div>
-      <button onClick={handleClick}>TopArtists</button>
       <TopArtistList data={tracks} />
     </div>
   );

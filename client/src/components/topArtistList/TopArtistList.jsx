@@ -5,14 +5,19 @@ function TopArtistList({ data }) {
   console.log(data);
   return (
     <div>
+      <h1>Top tracks this month</h1>
+      <p>only visible to you</p>
       {data.map((track, index) => {
         return (
           <div className="track" key={index}>
             <img className="track__image" src={track.album.images[0].url}></img>
-            <div>
-              <h3>{track.name}</h3>
-              <p>{track.artists[0].name}</p>
+            <div className="track__artist">
+              <h3 className="track__artist-name">{track.name}</h3>
+              <p className="track__artist">{track.artists[0].name}</p>
             </div>
+            {/* <div className="track__album">
+              <p className="track__album-name">{track.album.name}</p>
+            </div> */}
           </div>
         );
       })}
