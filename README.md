@@ -4,6 +4,10 @@ in progress ...
 
 App to allow users to view their music library and play music
 
+This app requires a client_id and client_secret to run.
+
+
+
 More content to be added...
 
 ## Table of contents
