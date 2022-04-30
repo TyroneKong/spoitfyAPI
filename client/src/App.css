@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   color: white;
-  background-color: black;
+  background-color: #191414;
 }
 
 .App-logo {
@@ -41,4 +41,9 @@
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+.logout--btn {
+  font-size: 20px;
+  border-radius: 20px;
 }

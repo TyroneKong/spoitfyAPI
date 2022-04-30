@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getTopArtists } from "../spotify";
 import TopArtistList from "../topArtistList/TopArtistList";
 
-function TopArtists() {
+function TopArtists({ currentTrack }) {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function TopArtists() {
   const fetchData = async () => {
     try {
       const { data } = await getTopArtists("tracks");
-      console.log(data);
+      console.log(data.items);
       setTracks(data.items);
       console.log(tracks);
     } catch (error) {
@@ -22,7 +22,7 @@ function TopArtists() {
 
   return (
     <div>
-      <TopArtistList data={tracks} />
+      <TopArtistList data={tracks} currentTrack={currentTrack} />
     </div>
   );
 }

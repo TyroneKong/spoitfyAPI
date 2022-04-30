@@ -1,0 +1,16 @@
+.login {
+  border: 2px solid red;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__btn {
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    background-color: #1ed760;
+    border-radius: 26px;
+  }
+}

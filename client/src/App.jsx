@@ -1,7 +1,6 @@
 import "./App.css";
 import Login from "../src/components/Login";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Profile from "../src/components/profile/Profile";
 import TopArtists from "./components/topArtists/TopArtists";
 import SpotifyPlayer from "react-spotify-web-playback";
@@ -18,6 +17,7 @@ function App() {
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
   const [followers, setFollowers] = useState(null);
+  const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState(null);
 
   useEffect(() => {
     setToken(accessToken);
@@ -41,11 +41,12 @@ function App() {
   return (
     <div className="App">
       {!token ? (
-        <Login />
+        <Login className="login--btn" />
       ) : (
         <>
-          <button onClick={logout}>Log out</button>
-          <h1>Logged in</h1>
+          <button className="logout--btn" onClick={logout}>
+            Log out
+          </button>
           <Profile name={name} picture={picture} followers={followers} />
           <SpotifyPlayer
             styles={{
@@ -59,11 +60,14 @@ function App() {
             }}
             showSaveIcon={true}
             className="spotifyPlayer"
+            autoPlay={true}
             play={true}
+            volume={6}
             token={token}
-            uris={["spotify:track:6rqhFgbbKwnb9MLmUQDhG6"]}
+            maginifySliderOnHover={true}
+            uris={[`spotify:track:${currentlyPlayingTrack}`]}
           />
-          <TopArtists />
+          <TopArtists currentTrack={setCurrentlyPlayingTrack} />
         </>
       )}
     </div>
