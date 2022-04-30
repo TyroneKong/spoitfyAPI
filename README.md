@@ -47,4 +47,4 @@ More content to be added...
 
 ## Author
 
-- Linkedin - [www.linkedin.com/in/tyrone-kong]()
+- Linkedin - [www.linkedin.com/in/tyrone-kong]
