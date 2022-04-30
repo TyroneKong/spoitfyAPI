@@ -4,8 +4,8 @@ import "./TopArtistList.scss";
 function TopArtistList({ data }) {
   console.log(data);
   return (
-    <div>
-      <h1>Top tracks this month</h1>
+    <div className="TopArtistList">
+      <h1 className="TopArtistList__title">Top tracks this month</h1>
       <p>only visible to you</p>
       {data.map((track, index) => {
         return (

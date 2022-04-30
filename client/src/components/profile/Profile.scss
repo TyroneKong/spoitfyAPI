@@ -1,7 +1,11 @@
 .profile {
   display: flex;
   &__image {
+    height: 200px;
     width: 200px;
     border-radius: 150px;
+  }
+  &__name {
+    font-size: 70px;
   }
 }

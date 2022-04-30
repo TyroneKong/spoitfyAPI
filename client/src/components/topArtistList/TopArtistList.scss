@@ -1,6 +1,7 @@
 .track {
   display: flex;
-  border: 2px solid red;
+  border: 2px solid green;
+  background-color: rgb(26, 22, 22);
 
   &__image {
     width: 10%;
@@ -11,5 +12,11 @@
   }
   &__artist {
     width: 150px;
+  }
+}
+
+.TopArtistList {
+  &__title {
+    font-size: 16px;
   }
 }
