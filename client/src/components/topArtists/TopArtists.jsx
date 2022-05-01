@@ -1,28 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { getTopArtists } from "../spotify";
-import TopArtistList from "../topArtistList/TopArtistList";
+import { getTopArtists } from "../spotify.jsx";
+import TopArtistList from "../topArtistsList/TopArtistList.jsx";
 
-function TopArtists({ currentTrack }) {
-  const [tracks, setTracks] = useState([]);
+function TopArtists() {
+  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    fetchArtists();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const { data } = await getTopArtists("tracks");
-      console.log(data.items);
-      setTracks(data.items);
-      console.log(tracks);
-    } catch (error) {
-      console.log(error);
-    }
+  const fetchArtists = () => {
+    getTopArtists().then((response) => setArtists(response.data.items));
   };
-
+  console.log(artists);
   return (
     <div>
-      <TopArtistList data={tracks} currentTrack={currentTrack} />
+      <TopArtistList data={artists} />
     </div>
   );
 }

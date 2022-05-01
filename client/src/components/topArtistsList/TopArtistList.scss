@@ -1,0 +1,19 @@
+.topArtist {
+  display: flex;
+  column-gap: 13px;
+  &__image-container {
+    background-color: #151111;
+    border: 2px solid red;
+    height: 200px;
+  }
+  &__image {
+    width: 70%;
+    border-radius: 100px;
+  }
+  &__name {
+    font-size: 13px;
+  }
+  &__artist {
+    font-size: 10px;
+  }
+}

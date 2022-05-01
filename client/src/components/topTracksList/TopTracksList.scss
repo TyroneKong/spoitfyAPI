@@ -3,7 +3,8 @@
   background-color: rgb(26, 22, 22);
 
   &__image {
-    width: 10%;
+    cursor: pointer;
+    width: 100px;
   }
   &__album {
     display: flex;
@@ -14,7 +15,7 @@
   }
 }
 
-.TopArtistList {
+.TopTracksList {
   &__title {
     font-size: 16px;
   }

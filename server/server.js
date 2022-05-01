@@ -63,7 +63,7 @@ app.get("/callback", (req, res) => {
 
         //redirect to react application
 
-        res.redirect(`http://localhost:3003/?${queryParams}`);
+        res.redirect(`http://localhost:3000/?${queryParams}`);
       } else {
         res.redirect(`/?${querystring.stringify({ err: "invalid token" })}`);
       }

@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import "./TopArtistList.scss";
+import React from "react";
+import "./TopTracksList.scss";
 
-function TopArtistList({ data, currentTrack }) {
+function TopTracksList({ data, currentTrack }) {
   const handleClick = (track) => {
     currentTrack(track);
     console.log(`current trackid: ${track}`);
   };
 
   return (
-    <div className="TopArtistList">
-      <h1 className="TopArtistList__title">Top tracks this month</h1>
+    <div className="TopTracksList">
+      <h1 className="TopTracksList__title">Top tracks this month</h1>
       <p>only visible to you</p>
       {data.map((track, index) => {
         return (
@@ -30,4 +30,4 @@ function TopArtistList({ data, currentTrack }) {
   );
 }
 
-export default TopArtistList;
+export default TopTracksList;
