@@ -7,8 +7,8 @@ function Profile({ name, picture, followers }) {
       <img className="profile__image" src={picture}></img>
       <div>
         <h2 className="profile__name">{name}</h2>
-        <p>{followers} follower</p>
       </div>
+      <p>{followers} follower</p>
     </div>
   );
 }

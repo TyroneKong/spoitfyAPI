@@ -59,7 +59,6 @@ function App() {
           </button>
           <Profile name={name} picture={picture} followers={followers} />
           <TopArtists />
-          <TopTracks currentTrack={setCurrentlyPlayingTrack} />
           <SpotifyPlayer
             styles={{
               activeColor: "#fff",
@@ -79,6 +78,7 @@ function App() {
             maginifySliderOnHover={true}
             uris={[`spotify:track:${currentlyPlayingTrack}`]}
           />
+          <TopTracks currentTrack={setCurrentlyPlayingTrack} />
         </>
       )}
     </div>
