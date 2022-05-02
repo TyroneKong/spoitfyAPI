@@ -2,7 +2,7 @@
   display: flex;
   column-gap: 13px;
   justify-content: flex-start;
-  margin-left: 250px;
+  margin-left: -200px 190px;
   &__image-container {
     background-color: #151111;
 
@@ -24,6 +24,5 @@
   }
   &__title-container {
     display: flex;
-    margin-left: 250px;
   }
 }

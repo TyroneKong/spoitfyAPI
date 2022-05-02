@@ -1,12 +1,24 @@
 .profile {
   display: flex;
-  margin: -120px 0px 0px 250px;
+
+  flex-direction: column;
+  margin: -200px 0px 0px 220px;
   &__image {
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
     border-radius: 150px;
   }
   &__name {
     font-size: 70px;
+  }
+  &__name-container {
+    margin: -140px 0px 0px -270px;
+  }
+  &__image-container {
+    height: 400px;
+    align-items: center;
+    display: flex;
+    // background-color: rgb(112, 56, 48);
+    background: linear-gradient(#e66465, #91e5);
   }
 }

@@ -2,11 +2,13 @@ import "./App.css";
 import Login from "../src/components/Login";
 import { useEffect, useState } from "react";
 import Profile from "../src/components/profile/Profile";
-import TopTracks from "./components/topTracks/TopTracks";
+// import TopTracks from "./components/topTracks/TopTracks";
 import SpotifyPlayer from "react-spotify-web-playback";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TopArtists from "./components/topArtists/TopArtists";
+// import TopArtists from "./components/topArtists/TopArtists";
 import SideBar from "./components/sidebar/SideBar";
+// import ArtistInfo from "./components/artistInfo/ArtistInfo";
+// import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 
 import {
   accessToken,
@@ -62,11 +64,15 @@ function App() {
             </button>
           </div>
           <SideBar />
+          <Profile
+            name={name}
+            picture={picture}
+            followers={followers}
+            currentTrack={setCurrentlyPlayingTrack}
+          />
+          {/* <TopArtists />
 
-          <Profile name={name} picture={picture} followers={followers} />
-          <TopArtists />
-
-          <TopTracks currentTrack={setCurrentlyPlayingTrack} />
+          <TopTracks currentTrack={setCurrentlyPlayingTrack} /> */}
           <SpotifyPlayer
             className="spotifyPlayer"
             styles={{
