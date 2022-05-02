@@ -6,6 +6,7 @@ import TopTracks from "./components/topTracks/TopTracks";
 import SpotifyPlayer from "react-spotify-web-playback";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TopArtists from "./components/topArtists/TopArtists";
+import SideBar from "./components/sidebar/SideBar";
 
 import {
   accessToken,
@@ -50,27 +51,33 @@ function App() {
 
   return (
     <div className="App">
+      <SideBar />
       {!token ? (
         <Login className="login--btn" />
       ) : (
         <>
-          <button className="logout--btn" onClick={logout}>
-            Log out
-          </button>
+          <div>
+            <button className="logout--btn" onClick={logout}>
+              <img className="logout--btn__image" src={picture} />
+              Log out
+            </button>
+          </div>
+
           <Profile name={name} picture={picture} followers={followers} />
           <TopArtists />
+
+          <TopTracks currentTrack={setCurrentlyPlayingTrack} />
           <SpotifyPlayer
+            className="spotifyPlayer"
             styles={{
               activeColor: "#fff",
               bgColor: "#333",
               color: "#fff",
               loaderColor: "#fff",
-              sliderColor: "#1cb954",
               trackArtistColor: "#ccc",
               trackNameColor: "#fff",
             }}
             showSaveIcon={true}
-            className="spotifyPlayer"
             autoPlay={true}
             play={true}
             volume={6}
@@ -78,7 +85,6 @@ function App() {
             maginifySliderOnHover={true}
             uris={[`spotify:track:${currentlyPlayingTrack}`]}
           />
-          <TopTracks currentTrack={setCurrentlyPlayingTrack} />
         </>
       )}
     </div>

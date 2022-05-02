@@ -4,8 +4,10 @@ import "./TopArtistList.scss";
 function TopArtistList({ data }) {
   console.log(data);
   return (
-    <div>
-      <h3>Top Artists of the month</h3>
+    <div className="TopArtist">
+      <div className="topArtist__title-container">
+        <h3>Top Artists of the month</h3>
+      </div>
       <div className="topArtist">
         {data.map((image, index) => {
           return (

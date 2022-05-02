@@ -1,22 +1,46 @@
 .track {
   display: flex;
+  align-items: center;
+
   background-color: rgb(26, 22, 22);
+
+  margin-left: 250px;
+  height: 70px;
+  font-size: 13px;
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+  &__image-container {
+    width: 100px;
+  }
 
   &__image {
     cursor: pointer;
-    width: 100px;
+    width: 40px;
   }
   &__album {
     display: flex;
-    justify-content: flex-end;
   }
   &__artist {
-    width: 150px;
+    width: 400px;
+  }
+  &__number {
+    width: 10px;
   }
 }
 
 .TopTracksList {
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-left: 250px;
+  }
   &__title {
     font-size: 16px;
+  }
+  &__bold-title {
+    font-weight: bold;
   }
 }

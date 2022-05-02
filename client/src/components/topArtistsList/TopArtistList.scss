@@ -1,13 +1,19 @@
 .topArtist {
   display: flex;
   column-gap: 13px;
+  justify-content: flex-start;
+  margin-left: 250px;
   &__image-container {
     background-color: #151111;
-    border: 2px solid red;
+
     height: 200px;
+    width: 150px;
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.2);
+    }
   }
   &__image {
-    width: 70%;
+    width: 100px;
     border-radius: 100px;
   }
   &__name {
@@ -15,5 +21,10 @@
   }
   &__artist {
     font-size: 10px;
+  }
+  &__title-container {
+    display: flex;
+    margin-left: 250px;
+    border: 2px solid red;
   }
 }
