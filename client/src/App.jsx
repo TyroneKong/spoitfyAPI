@@ -56,7 +56,7 @@ function App() {
         <Login className="login--btn" />
       ) : (
         <>
-          <div>
+          <div className="logout">
             <button className="logout--btn" onClick={logout}>
               <img className="logout--btn__image" src={picture} />
               Log out
