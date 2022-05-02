@@ -51,7 +51,6 @@ function App() {
 
   return (
     <div className="App">
-      <SideBar />
       {!token ? (
         <Login className="login--btn" />
       ) : (
@@ -62,6 +61,7 @@ function App() {
               Log out
             </button>
           </div>
+          <SideBar />
 
           <Profile name={name} picture={picture} followers={followers} />
           <TopArtists />
