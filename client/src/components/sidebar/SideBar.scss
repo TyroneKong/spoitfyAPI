@@ -16,9 +16,11 @@
     list-style: none;
   }
   &__home {
+    color: white;
     display: flex;
     align-items: center;
     column-gap: 10px;
+    text-decoration: none;
   }
   &__search {
     display: flex;
@@ -26,8 +28,10 @@
     column-gap: 10px;
   }
   &__library {
+    color: white;
     display: flex;
     align-items: center;
     column-gap: 10px;
+    text-decoration: none;
   }
 }

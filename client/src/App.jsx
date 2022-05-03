@@ -7,14 +7,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SideBar from "./components/sidebar/SideBar";
 import ArtistInfo from "./components/artistInfo/ArtistInfo";
 import UserPlayList from "./components/userPlayList/UserPlayList";
-// import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
-
+import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 import {
   accessToken,
   logout,
   getCurrentUserProfile,
   getUsersPlayList,
-  getArtistInfo,
 } from "./components/spotify";
 
 function App() {
@@ -65,22 +63,24 @@ function App() {
 
           <Router>
             <SideBar />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Profile
-                    name={name}
-                    picture={picture}
-                    followers={followers}
-                    currentTrack={setCurrentlyPlayingTrack}
-                    artistInfoid={setUserId}
-                  />
-                }
-              />
-              <Route path="playlist" element={<UserPlayList />} />
-              <Route path="artistInfo" element={<ArtistInfo />} />
-            </Routes>
+            <ArtistInfoContextProvider>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Profile
+                      name={name}
+                      picture={picture}
+                      followers={followers}
+                      currentTrack={setCurrentlyPlayingTrack}
+                      artistInfoid={setUserId}
+                    />
+                  }
+                />
+                <Route path="playlist" element={<UserPlayList />} />
+                <Route path="artistInfo" element={<ArtistInfo />} />
+              </Routes>
+            </ArtistInfoContextProvider>
           </Router>
 
           {/* <TopArtists />
