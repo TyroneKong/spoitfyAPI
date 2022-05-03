@@ -19,20 +19,24 @@ function Profile({ name, picture, followers, currentTrack }) {
   // applied conditional rendering based on whether the data was received
 
   const fetchArtists = () => {
-    getTopArtists().then((response) =>
-      response && setTopArtistsDataReceived(true) && topArtistsDataReceived
-        ? setArtists(response.data.items)
-        : console.log("loading data...")
-    );
+    getTopArtists()
+      .then(
+        (response) =>
+          response.status === 200 && setArtists(response.data.items),
+        setTopArtistsDataReceived(true)
+      )
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const fetchData = () => {
     getTopTracks()
       .then((response) => {
-        response && setTopTracksDataReceived(true) && topTracksDataReceived
-          ? setTracks(response.data.items)
-          : console.log("loading data...");
+        response.status === 200 && setTracks(response.data.items),
+          setTopTracksDataReceived(true);
       })
+
       .catch((err) => console.log(err));
   };
 
@@ -43,12 +47,12 @@ function Profile({ name, picture, followers, currentTrack }) {
         <h2 className="profile__name">{name}</h2>
         <p>{followers} follower</p>
       </div>
-      {topArtistsDataReceived && topTracksDataReceived && (
+      {topArtistsDataReceived && topTracksDataReceived ? (
         <>
           <TopArtists artist={artists} />
           <TopTracks currentTrack={currentTrack} tracks={tracks} />
         </>
-      )}
+      ) : null}
     </div>
   );
 }

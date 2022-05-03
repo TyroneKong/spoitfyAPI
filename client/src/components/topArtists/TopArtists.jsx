@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getTopArtists } from "../spotify.jsx";
 import TopArtistList from "../topArtistsList/TopArtistList.jsx";
 
-function TopArtists() {
-  const [artists, setArtists] = useState([]);
-
-  useEffect(() => {
-    fetchArtists();
-  }, []);
-
-  const fetchArtists = () => {
-    getTopArtists().then((response) => setArtists(response.data.items));
-  };
-  console.log(artists);
+function TopArtists({ artist }) {
   return (
     <div>
-      <TopArtistList data={artists} />
+      <TopArtistList data={artist} />
     </div>
   );
 }
