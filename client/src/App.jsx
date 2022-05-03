@@ -6,7 +6,7 @@ import SpotifyPlayer from "react-spotify-web-playback";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SideBar from "./components/sidebar/SideBar";
 import ArtistInfo from "./components/artistInfo/ArtistInfo";
-import UserPlayList from "./components/userPlayList/UserPlayList";
+import UserPlaylist from "./components/userPlayList/UserPlayList";
 import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 import {
   accessToken,
@@ -44,10 +44,6 @@ function App() {
     fetchData();
   }, []);
 
-  getUsersPlayList("slicktyrone").then((response) => {
-    console.log(response);
-  });
-
   return (
     <div className="App">
       {!token ? (
@@ -62,7 +58,7 @@ function App() {
           </div>
 
           <Router>
-            <SideBar />
+            <SideBar userid={userid} />
             <ArtistInfoContextProvider>
               <Routes>
                 <Route
@@ -77,7 +73,10 @@ function App() {
                     />
                   }
                 />
-                <Route path="playlist" element={<UserPlayList />} />
+                <Route
+                  path="playlist"
+                  element={<UserPlaylist userid={userid} />}
+                />
                 <Route path="artistInfo" element={<ArtistInfo />} />
               </Routes>
             </ArtistInfoContextProvider>

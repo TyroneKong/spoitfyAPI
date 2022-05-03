@@ -1,0 +1,19 @@
+.playlist {
+  margin: 40px 0px 0px 220px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  font-size: 13px;
+  row-gap: 20px;
+  &__container {
+  }
+
+  &__card {
+    &-image {
+      width: 120px;
+    }
+  }
+  &__name {
+    width: 100px;
+  }
+}

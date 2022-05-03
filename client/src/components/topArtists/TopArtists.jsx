@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import TopArtistList from "../topArtistsList/TopArtistList.jsx";
 
 function TopArtists({ artist }) {
