@@ -9,15 +9,12 @@ function TopTracks({ currentTrack }) {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const { data } = await getTopTracks();
-      console.log(data.items);
-      setTracks(data.items);
-      console.log(tracks);
-    } catch (error) {
-      console.log(error);
-    }
+  const fetchData = () => {
+    getTopTracks()
+      .then((response) => {
+        setTracks(response.data.items);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

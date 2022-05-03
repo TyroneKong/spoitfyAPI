@@ -2,12 +2,11 @@ import "./App.css";
 import Login from "../src/components/Login";
 import { useEffect, useState } from "react";
 import Profile from "../src/components/profile/Profile";
-// import TopTracks from "./components/topTracks/TopTracks";
 import SpotifyPlayer from "react-spotify-web-playback";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import TopArtists from "./components/topArtists/TopArtists";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SideBar from "./components/sidebar/SideBar";
-// import ArtistInfo from "./components/artistInfo/ArtistInfo";
+import ArtistInfo from "./components/artistInfo/ArtistInfo";
+import UserPlayList from "./components/userPlayList/UserPlayList";
 // import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 
 import {
@@ -15,6 +14,7 @@ import {
   logout,
   getCurrentUserProfile,
   getUsersPlayList,
+  getArtistInfo,
 } from "./components/spotify";
 
 function App() {
@@ -32,7 +32,6 @@ function App() {
     const fetchData = async () => {
       try {
         const { data } = await getCurrentUserProfile();
-        console.log(data.followers.total);
         setProfile(data);
         console.log(data);
         setName(data.display_name);
@@ -63,13 +62,27 @@ function App() {
               Log out
             </button>
           </div>
-          <SideBar />
-          <Profile
-            name={name}
-            picture={picture}
-            followers={followers}
-            currentTrack={setCurrentlyPlayingTrack}
-          />
+
+          <Router>
+            <SideBar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Profile
+                    name={name}
+                    picture={picture}
+                    followers={followers}
+                    currentTrack={setCurrentlyPlayingTrack}
+                    artistInfoid={setUserId}
+                  />
+                }
+              />
+              <Route path="playlist" element={<UserPlayList />} />
+              <Route path="artistInfo" element={<ArtistInfo />} />
+            </Routes>
+          </Router>
+
           {/* <TopArtists />
 
           <TopTracks currentTrack={setCurrentlyPlayingTrack} /> */}
