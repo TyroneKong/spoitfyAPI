@@ -5,13 +5,13 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
 import { Link } from "react-router-dom";
-import { getUsersPlayList } from "../spotify";
+import { getPlaylist } from "../spotify";
 
 function SideBar({ userid }) {
   const [playlistData, setPlaylistData] = useState([]);
 
   useEffect(() => {
-    getUsersPlayList(userid).then((response) => {
+    getPlaylist(userid).then((response) => {
       console.log(response.data.items);
       setPlaylistData(response.data.items);
     });
@@ -37,11 +37,17 @@ function SideBar({ userid }) {
             Your Library
           </Link>
         </li>
+        <li>Create Playlist</li>
+        <li>Liked Songs</li>
         <hr className="sidebar__line" />
         {playlistData.map((data, index) => {
           return (
             <div className="sidebar__library-list" key={index}>
-              <li>{data.name}</li>
+              <li className="sidebar__library-item">
+                <Link className="sidebar__library-playlist" to="playlistpage">
+                  {data.name}
+                </Link>
+              </li>
             </div>
           );
         })}

@@ -38,6 +38,14 @@
       width: 200px;
       display: flex;
       justify-content: left;
+      text-decoration: none;
+    }
+    &-item {
+      text-decoration: none;
+    }
+    &-playlist {
+      color: white;
+      text-decoration: none;
     }
   }
   &__line {

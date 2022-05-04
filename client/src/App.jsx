@@ -8,11 +8,13 @@ import SideBar from "./components/sidebar/SideBar";
 import ArtistInfo from "./components/artistInfo/ArtistInfo";
 import UserPlaylist from "./components/userPlayList/UserPlayList";
 import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
+import Playlist from "./components/pages/PlaylistPage";
+import PlaylistPage from "./components/pages/PlaylistPage";
+
 import {
   accessToken,
   logout,
   getCurrentUserProfile,
-  getUsersPlayList,
 } from "./components/spotify";
 
 function App() {
@@ -78,6 +80,7 @@ function App() {
                   element={<UserPlaylist userid={userid} />}
                 />
                 <Route path="artistInfo" element={<ArtistInfo />} />
+                <Route path="playlistpage" element={<PlaylistPage />} />
               </Routes>
             </ArtistInfoContextProvider>
           </Router>

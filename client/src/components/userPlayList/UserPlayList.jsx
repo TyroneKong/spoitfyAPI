@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getUsersPlayList } from "../spotify";
+import { getPlaylist } from "../spotify";
 import Playlist from "../Playlist/Playlist";
 import "./UserPlaylist.scss";
 
@@ -7,7 +7,7 @@ function UserPlaylist({ userid }) {
   const [playlistData, setPlaylistData] = useState([]);
 
   useEffect(() => {
-    getUsersPlayList(userid).then((response) => {
+    getPlaylist(userid).then((response) => {
       console.log(response.data.items);
       setPlaylistData(response.data.items);
     });

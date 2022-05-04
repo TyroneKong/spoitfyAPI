@@ -2,14 +2,26 @@ import React, { useState, useEffect } from "react";
 import "./Profile.scss";
 import TopArtists from "../topArtists/TopArtists";
 import TopTracks from "../topTracks/TopTracks";
-import { getTopArtists } from "../spotify";
-import { getTopTracks } from "../spotify";
+import { getTopArtists, getTopTracks } from "../spotify";
+import PublicPlaylist from "../publicPlaylist/PublicPlaylist";
 
 function Profile({ name, picture, followers, currentTrack }) {
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
   const [topArtistsDataReceived, setTopArtistsDataReceived] = useState(false);
   const [topTracksDataReceived, setTopTracksDataReceived] = useState(false);
+
+  function msToTime(s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+
+    return mins + ":" + secs;
+  }
+
+  console.log(msToTime(317306));
 
   useEffect(() => {
     fetchArtists();
@@ -35,6 +47,7 @@ function Profile({ name, picture, followers, currentTrack }) {
       .then((response) => {
         response.status === 200 && setTracks(response.data.items),
           setTopTracksDataReceived(true);
+        console.log(response.data.items);
       })
 
       .catch((err) => console.log(err));
@@ -50,9 +63,14 @@ function Profile({ name, picture, followers, currentTrack }) {
       {topArtistsDataReceived && topTracksDataReceived ? (
         <>
           <TopArtists artist={artists} />
-          <TopTracks currentTrack={currentTrack} tracks={tracks} />
+          <TopTracks
+            currentTrack={currentTrack}
+            tracks={tracks}
+            duration={msToTime}
+          />
         </>
       ) : null}
+      <PublicPlaylist />
     </div>
   );
 }

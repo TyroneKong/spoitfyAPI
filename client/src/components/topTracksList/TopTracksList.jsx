@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TopTracksList.scss";
 
-function TopTracksList({ data, currentTrack }) {
+function TopTracksList({ data, currentTrack, duration }) {
   const handleClick = (track) => {
     currentTrack(track);
     console.log(`current trackid: ${track}`);
@@ -19,7 +19,7 @@ function TopTracksList({ data, currentTrack }) {
         </p>
       </div>
 
-      {data.map((track, index) => {
+      {data.slice(0, 4).map((track, index) => {
         return (
           <div className="track" key={index}>
             <div className="track__number">

@@ -149,10 +149,6 @@ export const getCurrentUserProfile = () => axios.get("/me");
 //get top tracks
 export const getTopTracks = () => axios.get(`/me/top/tracks`);
 
-//get users playlist
-export const getUsersPlayList = (userid) =>
-  axios.get(`/users/${userid}/playlists`);
-
 // get top artists
 export const getTopArtists = () =>
   axios.get("/me/top/artists?time_range=short_term");
@@ -160,3 +156,12 @@ export const getTopArtists = () =>
 //get get artist info
 
 export const getArtistInfo = (id) => axios.get(`/artists/${id}`);
+
+//get user playlist
+
+export const getPlaylist = () => axios.get("/me/playlists");
+
+//get public playlist
+
+export const getPublicPlaylist = () =>
+  axios.get("/browse/featured-playlists?country=CA");

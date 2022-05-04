@@ -1,0 +1,12 @@
+.publicPlaylist__card-container {
+  height: 200px;
+  width: 150px;
+
+  background-color: #151111;
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+}
+.publicPlaylist__card-image {
+  width: 120px;
+}
