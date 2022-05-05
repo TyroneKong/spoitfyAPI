@@ -64,3 +64,7 @@ button {
   position: relative;
   margin: 0px 0px 0px 250px;
 }
+
+.spotifyPlayer{
+  margin-top: 200px;
+}

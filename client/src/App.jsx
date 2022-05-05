@@ -103,6 +103,9 @@ function App() {
           {/* <TopArtists />
 
           <TopTracks currentTrack={setCurrentlyPlayingTrack} /> */}
+          
+          <div className="spotifyPlayer">
+
           <SpotifyPlayer
             className="spotifyPlayer"
             styles={{
@@ -119,6 +122,9 @@ function App() {
             token={token}
             uris={[`spotify:track:${currentlyPlayingTrack}`]}
           />
+
+
+          </div>
         </>
       )}
     </div>
