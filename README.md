@@ -29,7 +29,9 @@ More content to be added...
 
 ![](./images/spotifyapp1.png)
 ![](./images/spotifyapp2.png)
-![](./images/spotifyapp4.png)
+![](./images/spotifyapp13.png)
+![](./images/spotifyapp10.png)
+![](./images/spotifyapp12.png)
 
 
 
