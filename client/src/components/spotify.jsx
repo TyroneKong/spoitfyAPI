@@ -169,3 +169,8 @@ export const getPublicPlaylist = () =>
 //get followed artists
 
 export const getFollowedArtist = () => axios.get("/me/following?type=artist");
+
+// get playlist tracks
+
+export const getPlaylistTracks = (playlist_id) =>
+  axios.get(`/playlists/${playlist_id}`);

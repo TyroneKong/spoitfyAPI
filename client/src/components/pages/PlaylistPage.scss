@@ -1,9 +1,20 @@
 .playlistPage {
-  margin: -200px 0px 0px 250px;
-  border: 2px solid red;
+  margin: -2100px 0px 0px 250px;
+
   display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    column-gap: 20px;
+    border: 2px solid red;
+    background: linear-gradient(#e58435, #91e5);
+  }
 
   &__image {
-    width: 200px;
+    width: 300px;
+  }
+  &__name {
+    font-size: 100px;
   }
 }

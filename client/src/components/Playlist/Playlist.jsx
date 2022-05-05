@@ -3,7 +3,6 @@ import PlaylistCards from "../PlaylistCards/PlaylistCards";
 import "./Playlist.scss";
 
 function Playlist({ playlistData }) {
-  console.log(playlistData);
   return (
     <div className="playlist">
       <div className="playlist__likedsongCard">

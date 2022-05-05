@@ -13,7 +13,7 @@
   &__list {
     display: flex;
     flex-direction: column;
-
+    row-gap: 20px;
     list-style: none;
   }
   &__home {

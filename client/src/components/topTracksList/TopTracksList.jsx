@@ -18,7 +18,7 @@ function TopTracksList({ data, currentTrack, duration }) {
         </p>
       </div>
 
-      {data.slice(0, 4).map((track, index) => {
+      {data.slice(0, 7).map((track, index) => {
         return (
           <div className="track" key={index}>
             <TopTracksCard

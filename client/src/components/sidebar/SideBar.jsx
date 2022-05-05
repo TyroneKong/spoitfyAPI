@@ -11,7 +11,7 @@ import { PlaylistContext } from "../contexts/PlaylistContext";
 
 function SideBar({ userid, func }) {
   const [playlist, setPlaylist] = useContext(PlaylistContext);
-
+  console.log(playlist);
   return (
     <nav className="sidebar">
       <img className="sidebar__logo" src={logo} />

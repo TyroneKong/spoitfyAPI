@@ -1,0 +1,11 @@
+.playlistPageTrackListCard {
+  display: flex;
+  column-gap: 20px;
+
+  &__image {
+    width: 80px;
+  }
+  &__title {
+    text-align: left;
+  }
+}
