@@ -12,7 +12,6 @@ function PublicPlaylist() {
 
   const fetchPublicPlaylist = () => {
     getPublicPlaylist().then((response) => {
-      console.log(response);
       setPublicPlaylistData(response.data.playlists.items);
     });
   };

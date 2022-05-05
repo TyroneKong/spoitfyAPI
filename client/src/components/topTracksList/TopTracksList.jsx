@@ -1,10 +1,9 @@
-import React, { useState } from "react";
 import "./TopTracksList.scss";
+import TopTracksCard from "../topTracksCard/TopTracksCard";
 
 function TopTracksList({ data, currentTrack, duration }) {
   const handleClick = (track) => {
     currentTrack(track);
-    console.log(`current trackid: ${track}`);
   };
 
   return (
@@ -15,28 +14,18 @@ function TopTracksList({ data, currentTrack, duration }) {
             Top tracks this month
           </span>
           <br />
-          only visible to you
+          <span className="TopTracksList__unbold">only visible to you</span>
         </p>
       </div>
 
       {data.slice(0, 4).map((track, index) => {
         return (
           <div className="track" key={index}>
-            <div className="track__number">
-              <p>{index + 1}</p>
-            </div>
-            <div className="track__image-container">
-              <img
-                onClick={() => handleClick(track.id)}
-                className="track__image"
-                src={track.album.images[0].url}
-              ></img>
-            </div>
-
-            <div className="track__artist">
-              <h3 className="track__artist-name">{track.name}</h3>
-              <p className="track__artist">{track.artists[0].name}</p>
-            </div>
+            <TopTracksCard
+              track={track}
+              index={index}
+              handleClick={handleClick}
+            />
           </div>
         );
       })}

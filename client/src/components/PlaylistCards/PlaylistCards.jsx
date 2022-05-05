@@ -2,7 +2,6 @@ import React from "react";
 import "./Playlist.scss";
 
 function PlaylistCards({ data }) {
-  console.log(data);
   return (
     <div className="playlist__container">
       <div className="playlist__card">

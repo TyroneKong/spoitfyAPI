@@ -1,0 +1,9 @@
+.playlistPage {
+  margin: -200px 0px 0px 250px;
+  border: 2px solid red;
+  display: flex;
+
+  &__image {
+    width: 200px;
+  }
+}

@@ -12,6 +12,12 @@
       background-color: rgba(128, 128, 128, 0.2);
     }
   }
+  &__paragraph {
+    font-weight: bold;
+  }
+  &__paragraph2 {
+    font-size: 12px;
+  }
   &__image {
     width: 120px;
     border-radius: 100px;
@@ -20,10 +26,12 @@
   &__name {
     font-size: 13px;
   }
+
   &__artist {
     font-size: 10px;
   }
   &__title-container {
     display: flex;
+    text-align: left;
   }
 }

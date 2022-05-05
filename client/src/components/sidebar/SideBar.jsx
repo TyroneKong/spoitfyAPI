@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import "./SideBar.scss";
 import logo from "../../../../images/spotifylogo.png";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
 import { Link } from "react-router-dom";
-import { getPlaylist } from "../spotify";
+import { PlaylistContext } from "../contexts/PlaylistContext";
 
-function SideBar({ userid }) {
-  const [playlistData, setPlaylistData] = useState([]);
+// playlist pulled from the context hook
 
-  useEffect(() => {
-    getPlaylist(userid).then((response) => {
-      console.log(response.data.items);
-      setPlaylistData(response.data.items);
-    });
-  }, []);
+function SideBar({ userid, func }) {
+  const [playlist, setPlaylist] = useContext(PlaylistContext);
 
   return (
     <nav className="sidebar">
@@ -40,12 +35,16 @@ function SideBar({ userid }) {
         <li>Create Playlist</li>
         <li>Liked Songs</li>
         <hr className="sidebar__line" />
-        {playlistData.map((data, index) => {
+        {playlist.map((data, index) => {
           return (
             <div className="sidebar__library-list" key={index}>
               <li className="sidebar__library-item">
-                <Link className="sidebar__library-playlist" to="playlistpage">
-                  {data.name}
+                <Link
+                  onClick={() => func(data)}
+                  className="sidebar__library-playlist"
+                  to="playlistpage"
+                >
+                  <p>{data.name}</p>
                 </Link>
               </li>
             </div>

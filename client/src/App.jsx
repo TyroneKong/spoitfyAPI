@@ -8,8 +8,8 @@ import SideBar from "./components/sidebar/SideBar";
 import ArtistInfo from "./components/artistInfo/ArtistInfo";
 import UserPlaylist from "./components/userPlayList/UserPlayList";
 import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
-import Playlist from "./components/pages/PlaylistPage";
 import PlaylistPage from "./components/pages/PlaylistPage";
+import { PlaylistContextProvider } from "./components/contexts/PlaylistContext";
 
 import {
   accessToken,
@@ -25,6 +25,7 @@ function App() {
   const [followers, setFollowers] = useState(null);
   const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState(null);
   const [userid, setUserId] = useState(null);
+  const [currentPlaylistitem, setCurrentPlaylistItem] = useState([]);
 
   useEffect(() => {
     setToken(accessToken);
@@ -46,6 +47,11 @@ function App() {
     fetchData();
   }, []);
 
+  const getCurrentPlaylistItem = (data) => {
+    console.log(data);
+    setCurrentPlaylistItem(data);
+  };
+
   return (
     <div className="App">
       {!token ? (
@@ -60,28 +66,37 @@ function App() {
           </div>
 
           <Router>
-            <SideBar userid={userid} />
             <ArtistInfoContextProvider>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Profile
-                      name={name}
-                      picture={picture}
-                      followers={followers}
-                      currentTrack={setCurrentlyPlayingTrack}
-                      artistInfoid={setUserId}
-                    />
-                  }
-                />
-                <Route
-                  path="playlist"
-                  element={<UserPlaylist userid={userid} />}
-                />
-                <Route path="artistInfo" element={<ArtistInfo />} />
-                <Route path="playlistpage" element={<PlaylistPage />} />
-              </Routes>
+              <PlaylistContextProvider>
+                <SideBar userid={userid} func={getCurrentPlaylistItem} />
+
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <Profile
+                        name={name}
+                        picture={picture}
+                        followers={followers}
+                        currentTrack={setCurrentlyPlayingTrack}
+                        artistInfoid={setUserId}
+                      />
+                    }
+                  />
+                  <Route
+                    path="playlist"
+                    element={<UserPlaylist userid={userid} />}
+                  />
+                  <Route path="artistInfo" element={<ArtistInfo />} />
+
+                  <Route
+                    path="playlistpage"
+                    element={
+                      <PlaylistPage currentPlaylistItem={currentPlaylistitem} />
+                    }
+                  />
+                </Routes>
+              </PlaylistContextProvider>
             </ArtistInfoContextProvider>
           </Router>
 
@@ -101,9 +116,7 @@ function App() {
             showSaveIcon={true}
             autoPlay={true}
             play={true}
-            volume={6}
             token={token}
-            maginifySliderOnHover={true}
             uris={[`spotify:track:${currentlyPlayingTrack}`]}
           />
         </>

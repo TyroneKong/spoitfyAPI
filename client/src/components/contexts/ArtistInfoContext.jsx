@@ -13,8 +13,8 @@ export const ArtistInfoContextProvider = ({ children }) => {
 
   const fetchArtistInfo = () => {
     getArtistInfo("1Xyo4u8uXC1ZmMpatF05PJ").then((response) => {
-      console.log(response.data);
       setArtistInfo(response.data);
+      console.log(response.data);
     });
   };
 

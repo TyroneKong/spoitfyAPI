@@ -3,11 +3,14 @@ import "./TopArtistList.scss";
 import { Link } from "react-router-dom";
 
 function TopArtistList({ data }) {
-  console.log(data);
   return (
     <div className="TopArtist">
       <div className="topArtist__title-container">
-        <h3>Top Artists of the month</h3>
+        <p>
+          <span className="topArtist__paragraph">Top Artists of the month</span>
+          <br />
+          <span className="topArtist__paragraph2">Only visible to you</span>
+        </p>
       </div>
       <div className="topArtist">
         {data.map((image, index) => {

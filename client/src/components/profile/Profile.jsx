@@ -21,8 +21,6 @@ function Profile({ name, picture, followers, currentTrack }) {
     return mins + ":" + secs;
   }
 
-  console.log(msToTime(317306));
-
   useEffect(() => {
     fetchArtists();
     fetchData();
@@ -47,7 +45,6 @@ function Profile({ name, picture, followers, currentTrack }) {
       .then((response) => {
         response.status === 200 && setTracks(response.data.items),
           setTopTracksDataReceived(true);
-        console.log(response.data.items);
       })
 
       .catch((err) => console.log(err));

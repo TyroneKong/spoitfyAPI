@@ -159,9 +159,13 @@ export const getArtistInfo = (id) => axios.get(`/artists/${id}`);
 
 //get user playlist
 
-export const getPlaylist = () => axios.get("/me/playlists");
+export const getPlaylist = () => axios.get("/me/playlists?limit=50");
 
 //get public playlist
 
 export const getPublicPlaylist = () =>
   axios.get("/browse/featured-playlists?country=CA");
+
+//get followed artists
+
+export const getFollowedArtist = () => axios.get("/me/following?type=artist");
