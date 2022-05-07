@@ -5,8 +5,8 @@ import "./PlaylistPageTrackList.scss";
 function PlaylistPageTrackList({ data }) {
   return (
     <div className="playlistPageTrackList">
-      {data.map((item) => {
-        return <PlaylistPageTrackListCard data={item.track} />;
+      {data.map((item, index) => {
+        return <PlaylistPageTrackListCard key={index} data={item.track} />;
       })}
     </div>
   );

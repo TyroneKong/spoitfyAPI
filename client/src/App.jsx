@@ -1,6 +1,6 @@
 import "./App.css";
 import Login from "../src/components/Login";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext} from "react";
 import Profile from "../src/components/profile/Profile";
 import SpotifyPlayer from "react-spotify-web-playback";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -17,6 +17,13 @@ import {
   getCurrentUserProfile,
 } from "./components/spotify";
 
+
+
+export const CurrentTrackContext = createContext()
+
+
+
+
 function App() {
   const [token, setToken] = useState(null);
   const [profile, setProfile] = useState(null);
@@ -26,6 +33,12 @@ function App() {
   const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState(null);
   const [userid, setUserId] = useState(null);
   const [currentPlaylistitem, setCurrentPlaylistItem] = useState([]);
+
+  
+  
+  
+
+
 
   useEffect(() => {
     setToken(accessToken);
@@ -68,6 +81,11 @@ function App() {
           <Router>
             <ArtistInfoContextProvider>
               <PlaylistContextProvider>
+                <CurrentTrackContext.Provider value={[currentlyPlayingTrack,setCurrentlyPlayingTrack]}>
+
+
+
+
                 <SideBar userid={userid} func={getCurrentPlaylistItem} />
 
                 <Routes>
@@ -78,7 +96,7 @@ function App() {
                         name={name}
                         picture={picture}
                         followers={followers}
-                        currentTrack={setCurrentlyPlayingTrack}
+                        
                         artistInfoid={setUserId}
                       />
                     }
@@ -96,6 +114,12 @@ function App() {
                     }
                   />
                 </Routes>
+
+
+
+                </CurrentTrackContext.Provider>
+
+            
               </PlaylistContextProvider>
             </ArtistInfoContextProvider>
           </Router>

@@ -5,7 +5,7 @@ import TopTracks from "../topTracks/TopTracks";
 import { getTopArtists, getTopTracks } from "../spotify";
 import PublicPlaylist from "../publicPlaylist/PublicPlaylist";
 
-function Profile({ name, picture, followers, currentTrack }) {
+function Profile({ name, picture, followers}) {
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
   const [topArtistsDataReceived, setTopArtistsDataReceived] = useState(false);
@@ -45,6 +45,7 @@ function Profile({ name, picture, followers, currentTrack }) {
       .then((response) => {
         response.status === 200 && setTracks(response.data.items),
           setTopTracksDataReceived(true);
+          console.log(response.data.items)
       })
 
       .catch((err) => console.log(err));
@@ -61,7 +62,7 @@ function Profile({ name, picture, followers, currentTrack }) {
         <>
           <TopArtists artist={artists} />
           <TopTracks
-            currentTrack={currentTrack}
+    
             tracks={tracks}
             duration={msToTime}
           />

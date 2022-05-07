@@ -1,9 +1,16 @@
 import "./TopTracksList.scss";
+import { useContext } from "react";
 import TopTracksCard from "../topTracksCard/TopTracksCard";
+import { CurrentTrackContext } from "../../App";
 
-function TopTracksList({ data, currentTrack, duration }) {
+
+function TopTracksList({ data, duration }) {
+
+
+const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useContext(CurrentTrackContext)
+
   const handleClick = (track) => {
-    currentTrack(track);
+    setCurrentlyPlayingTrack(track)
   };
 
   return (

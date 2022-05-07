@@ -5,6 +5,7 @@ import "./UserPlaylist.scss";
 
 function UserPlaylist({ userid }) {
   const [playlistData, setPlaylistData] = useState([]);
+  
 
   useEffect(() => {
     getPlaylist(userid).then((response) => {

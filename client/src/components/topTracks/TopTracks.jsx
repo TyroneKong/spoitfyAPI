@@ -1,10 +1,10 @@
 import TopTracksList from "../topTracksList/TopTracksList";
 
-function TopTracks({ currentTrack, tracks, duration }) {
+function TopTracks({ tracks, duration }) {
   return (
     <TopTracksList
       data={tracks}
-      currentTrack={currentTrack}
+  
       duration={duration}
     />
   );

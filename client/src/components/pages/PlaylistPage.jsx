@@ -3,7 +3,9 @@ import "./PlaylistPage.scss";
 import { getPlaylistTracks } from "../spotify";
 import PlaylistPageTrackList from "./PlaylistPageTrackList";
 
-function PlaylistPage({ currentPlaylistItem }) {
+
+
+function PlaylistPage({ currentPlaylistItem}) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
