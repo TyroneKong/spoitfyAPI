@@ -8,6 +8,9 @@ import PlaylistPageTrackList from "./PlaylistPageTrackList";
 function PlaylistPage({ currentPlaylistItem}) {
   const [data, setData] = useState([]);
 
+
+//re-render only if the currentPLaylistItem id changes
+
   useEffect(() => {
     getPlaylistTracks(currentPlaylistItem.id).then((response) => {
       setData(response.data.tracks.items);

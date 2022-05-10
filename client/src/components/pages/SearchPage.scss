@@ -1,7 +1,6 @@
 .searchPage{
     height: 100vh;
     margin-left: 250px;
-    
    
     &__Input{
         margin-bottom:50px ;
@@ -12,15 +11,17 @@
     }
     }
     &__artist-image{
-        
+        margin-left: 20px;        
         border-radius: 100px;
         width: 90px;
         height: 90px;
         &-container{
-            background-color: #151111;
+            margin-left: 20px;
+            display: flex;
+            background-color: #181818;
     
-        height: 150px;
-        width: 250px;
+        height: 200px;
+        width: 400px;
         &:hover {
           background-color: rgba(128, 128, 128, 0.2);
         }

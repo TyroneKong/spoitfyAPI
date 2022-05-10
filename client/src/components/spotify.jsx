@@ -94,7 +94,7 @@ const getAccessToken = () => {
   const queryParams = {
     [LOCALSTORAGE_KEYS.accessToken]: urlParams.get("access_token"),
     [LOCALSTORAGE_KEYS.refreshToken]: urlParams.get("refresh_token"),
-    [LOCALSTORAGE_KEYS.expiresTime]: urlParams.get("expires_in"),
+    [LOCALSTORAGE_KEYS.expireTime]: urlParams.get("expires_in"),
   };
 
   const hasError = urlParams.get("error");
@@ -159,8 +159,15 @@ export const getArtistInfo = (id) => axios.get(`/artists/${id}`);
 
 // get artist albums
 
-export const getArtistAlbums = (id)=> axios.get(`/artists/${id}/albums`)
+export const getArtistAlbums = (id)=> axios.get(`/artists/${id}/albums?limit=50`)
 
+// get related artists
+
+export const getRelatedArtists=(id)=> axios.get(`/artists/${id}/related-artists`)
+
+//  get artists top tracks
+
+export const getArtistTopTracks=(id)=> axios.get(`/artists/${id}/top-tracks`)
 
 //get user playlist
 

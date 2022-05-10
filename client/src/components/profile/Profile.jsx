@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./Profile.scss";
 import TopArtists from "../topArtists/TopArtists";
 import TopTracks from "../topTracks/TopTracks";
-import { getTopArtists, getTopTracks } from "../spotify";
 import PublicPlaylist from "../publicPlaylist/PublicPlaylist";
+import { getTopArtists, getTopTracks } from "../spotify";
+
+
 
 function Profile({ name, picture, followers}) {
   const [artists, setArtists] = useState([]);
@@ -11,6 +13,8 @@ function Profile({ name, picture, followers}) {
   const [topArtistsDataReceived, setTopArtistsDataReceived] = useState(false);
   const [topTracksDataReceived, setTopTracksDataReceived] = useState(false);
 
+
+  // function to convert milliseconds to minutes
   function msToTime(s) {
     var ms = s % 1000;
     s = (s - ms) / 1000;
@@ -26,8 +30,9 @@ function Profile({ name, picture, followers}) {
     fetchData();
   }, []);
 
-  // applied conditional rendering based on whether the data was received
 
+
+  //get top artists data
   const fetchArtists = () => {
     getTopArtists()
       .then(
@@ -39,6 +44,8 @@ function Profile({ name, picture, followers}) {
         console.log(err);
       });
   };
+
+  //get top tracks data
 
   const fetchData = () => {
     getTopTracks()

@@ -1,7 +1,8 @@
-.searchPage__album {
-
-&-image{
+.relatedartist__Image{
     width: 150px;
+    height: 150px;
+    border-radius: 100px;
+
     &-container{
         background-color: #151111;
     
@@ -12,9 +13,3 @@
         }
     }
 }
-
-
-}
-
-
-

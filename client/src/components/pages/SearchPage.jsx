@@ -2,16 +2,35 @@ import React, {useState, useEffect} from 'react'
 import { getArtistInfo, getSearchItem } from "../spotify";
 import SearchPageList from './SearchPageList';
 import './SearchPage.scss'
-import { responsiveFontSizes } from '@mui/material';
-
-
+import RelatedArtists from '../relatedArtists/RelatedArtists';
+import ArtistTopTracks from '../artistsTopTracks/ArtistTopTracks';
 
 function SearchPage() {
 
 const [searchInput, setSearchInput] = useState("")
 const [searchData, setSearchData] = useState([])
 const [artist, setArtist] = useState(null)
+const [artistName, setArtistName] = useState("")
+const [artistImage, setArtistImage] = useState(null)
 
+
+
+
+
+useEffect(()=>{
+   artist!== null?
+    getArtistInfo(artist).then(response=>{
+        setArtistImage(response.data.images[0].url)
+        setArtistName(response.data.name)
+      
+
+    }).catch(err=>{
+        console.log(err)
+    })
+    :console.log('no data')
+    
+    
+},[searchInput])
 
 
 
@@ -26,10 +45,6 @@ useEffect(()=>{
     searchInput!==""?
     getSearchItem(searchInput).then(response=>{
         setSearchData(response.data.tracks.items)
-
-    
-        // const filteredArtist = searchData.filter(item => item.artists[0].name)
-        // filteredArtist!== null?
      
        setArtist(searchData[0].artists[0].id)
         
@@ -42,12 +57,22 @@ useEffect(()=>{
 
     return (
     <div className='searchPage'>
+
 <div className='searchPage__Input-container'>
 
 
 <input className='searchPage__Input' onChange={(e)=>handleChange(e)} type="text" placeholder='Enter artist or album'></input>
+<div className='searchPage__artist-image-container'>
+<img className='searchPage__artist-image' src={artistImage}></img>
+<h2>{artistName}</h2> 
 
-<SearchPageList data={searchData} artist={artist}/>
+
+</div>
+<ArtistTopTracks artist={artist}/>
+     
+<SearchPageList searchInput={searchInput} data={searchData} artist={artist}/>
+
+   <RelatedArtists artist={artist}/>
     </div>
 
 </div>

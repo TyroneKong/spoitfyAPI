@@ -3,7 +3,7 @@ import './SearchPageListCard.scss'
 
 
 
-function SearchPageListCard({data, albumData}) {
+function SearchPageListCard({data, albumData, name}) {
     // const albumData = data.album
     
 
@@ -19,7 +19,7 @@ function SearchPageListCard({data, albumData}) {
 
 :null
 }
-
+<p>{name}</p>
 </div>
 
 

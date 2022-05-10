@@ -1,23 +1,21 @@
 import "./App.css";
 import Login from "../src/components/Login";
-import { useEffect, useState, createContext } from "react";
-import Profile from "../src/components/profile/Profile";
 import SpotifyPlayer from "react-spotify-web-playback";
+import { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Profile from "../src/components/profile/Profile";
 import SideBar from "./components/sidebar/SideBar";
 import ArtistInfo from "./components/artistInfo/ArtistInfo";
 import UserPlaylist from "./components/userPlayList/UserPlayList";
-import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 import PlaylistPage from "./components/pages/PlaylistPage";
+import SearchPage from "./components/pages/SearchPage"
+import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 import { PlaylistContextProvider } from "./components/contexts/PlaylistContext";
 
-import SearchPage from "./components/pages/SearchPage"
+
 
 
 //get request functions
-
-
-
 
 import {
   accessToken,
@@ -30,7 +28,6 @@ export const CurrentTrackContext = createContext();
 
 function App() {
   //setting state
-
   const [token, setToken] = useState(null);
   const [profile, setProfile] = useState(null);
   const [name, setName] = useState(null);
@@ -42,6 +39,7 @@ function App() {
   const [userid, setUserId] = useState(null);
   const [currentPlaylistitem, setCurrentPlaylistItem] = useState([]);
 
+  // get current user data
   useEffect(() => {
     setToken(accessToken);
 
