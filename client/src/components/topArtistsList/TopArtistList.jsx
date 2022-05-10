@@ -13,7 +13,7 @@ function TopArtistList({ data }) {
         </p>
       </div>
       <div className="topArtist">
-        {data.map((image, index) => {
+        {data.slice(0,10).map((image, index) => {
           return (
             <div className="topArtist__image-container" key={index}>
               <Link to="artistInfo">

@@ -28,8 +28,9 @@ const [currentlyPlayingTrack,setCurrentlyPlayingTrack] = useContext(CurrentTrack
         src={albumData.images[0]?.url}
       ></img>
       <div className="playlistPageTrackListCard__title">
+     
         <p>
-          {albumData.name}
+      {data.name}
 
           <br />
           {artistData[0].name}

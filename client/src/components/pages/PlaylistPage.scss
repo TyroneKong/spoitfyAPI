@@ -1,20 +1,29 @@
 .playlistPage {
-  margin: -2100px 0px 0px 250px;
+  margin: -1700px 0px 0px 250px;
 
   display: flex;
   flex-direction: column;
 
   &__container {
+    height: 500px;
     display: flex;
     column-gap: 20px;
-    border: 2px solid red;
     background: linear-gradient(#e58435, #91e5);
   }
 
   &__image {
-    width: 300px;
+    width: 250px;
+    &-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
   &__name {
-    font-size: 101px;
+    font-size: 80px;
+    &-container{
+      display: flex;
+      align-items: center;
+    }
   }
 }

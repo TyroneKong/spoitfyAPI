@@ -1,6 +1,6 @@
 import "./App.css";
 import Login from "../src/components/Login";
-import { useEffect, useState, createContext} from "react";
+import { useEffect, useState, createContext } from "react";
 import Profile from "../src/components/profile/Profile";
 import SpotifyPlayer from "react-spotify-web-playback";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -11,34 +11,36 @@ import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoConte
 import PlaylistPage from "./components/pages/PlaylistPage";
 import { PlaylistContextProvider } from "./components/contexts/PlaylistContext";
 
+import SearchPage from "./components/pages/SearchPage"
+
+
+//get request functions
+
+
+
+
 import {
   accessToken,
   logout,
   getCurrentUserProfile,
 } from "./components/spotify";
 
-
-
-export const CurrentTrackContext = createContext()
-
-
-
+// creating context for current track playing
+export const CurrentTrackContext = createContext();
 
 function App() {
+  //setting state
+
   const [token, setToken] = useState(null);
   const [profile, setProfile] = useState(null);
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
   const [followers, setFollowers] = useState(null);
-  const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState(null);
+  const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState(
+    ""
+  );
   const [userid, setUserId] = useState(null);
   const [currentPlaylistitem, setCurrentPlaylistItem] = useState([]);
-
-  
-  
-  
-
-
 
   useEffect(() => {
     setToken(accessToken);
@@ -61,7 +63,6 @@ function App() {
   }, []);
 
   const getCurrentPlaylistItem = (data) => {
-    console.log(data);
     setCurrentPlaylistItem(data);
   };
 
@@ -81,73 +82,61 @@ function App() {
           <Router>
             <ArtistInfoContextProvider>
               <PlaylistContextProvider>
-                <CurrentTrackContext.Provider value={[currentlyPlayingTrack,setCurrentlyPlayingTrack]}>
+                <CurrentTrackContext.Provider
+                  value={[currentlyPlayingTrack, setCurrentlyPlayingTrack]}
+                >
+                  <SideBar userid={userid} func={getCurrentPlaylistItem} />
 
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <Profile
+                          name={name}
+                          picture={picture}
+                          followers={followers}
+                          artistInfoid={setUserId}
+                        />
+                      }
+                    />
+                    <Route
+                      path="playlist"
+                      element={<UserPlaylist userid={userid} />}
+                    />
+                    <Route path="artistInfo" element={<ArtistInfo />} />
 
-
-
-                <SideBar userid={userid} func={getCurrentPlaylistItem} />
-
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Profile
-                        name={name}
-                        picture={picture}
-                        followers={followers}
-                        
-                        artistInfoid={setUserId}
-                      />
-                    }
-                  />
-                  <Route
-                    path="playlist"
-                    element={<UserPlaylist userid={userid} />}
-                  />
-                  <Route path="artistInfo" element={<ArtistInfo />} />
-
-                  <Route
-                    path="playlistpage"
-                    element={
-                      <PlaylistPage currentPlaylistItem={currentPlaylistitem} />
-                    }
-                  />
-                </Routes>
-
-
-
+                    <Route
+                      path="playlistpage"
+                      element={
+                        <PlaylistPage
+                          currentPlaylistItem={currentPlaylistitem}
+                        />
+                      }
+                    />
+                    <Route path="searchpage" element={<SearchPage/>}/>
+                  </Routes>
                 </CurrentTrackContext.Provider>
-
-            
               </PlaylistContextProvider>
             </ArtistInfoContextProvider>
           </Router>
 
-          {/* <TopArtists />
-
-          <TopTracks currentTrack={setCurrentlyPlayingTrack} /> */}
-          
           <div className="spotifyPlayer">
-
-          <SpotifyPlayer
-            className="spotifyPlayer"
-            styles={{
-              activeColor: "#fff",
-              bgColor: "#333",
-              color: "#fff",
-              loaderColor: "#fff",
-              trackArtistColor: "#ccc",
-              trackNameColor: "#fff",
-            }}
-            showSaveIcon={true}
-            autoPlay={true}
-            play={true}
-            token={token}
-            uris={[`spotify:track:${currentlyPlayingTrack}`]}
-          />
-
-
+            <SpotifyPlayer
+              className="spotifyPlayer"
+              styles={{
+                activeColor: "#fff",
+                bgColor: "#333",
+                color: "#fff",
+                loaderColor: "#fff",
+                trackArtistColor: "#ccc",
+                trackNameColor: "#fff",
+              }}
+              showSaveIcon={true}
+              autoPlay={true}
+              play={true}
+              token={token}
+              uris={[`spotify:track:${currentlyPlayingTrack}`]}
+            />
           </div>
         </>
       )}

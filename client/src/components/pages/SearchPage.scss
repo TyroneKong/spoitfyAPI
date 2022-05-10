@@ -1,0 +1,30 @@
+.searchPage{
+    height: 100vh;
+    margin-left: 250px;
+    
+   
+    &__Input{
+        margin-bottom:50px ;
+        width: 500px;
+        height: 30px;
+    &-container{
+        margin-top: -1700px;
+    }
+    }
+    &__artist-image{
+        
+        border-radius: 100px;
+        width: 90px;
+        height: 90px;
+        &-container{
+            background-color: #151111;
+    
+        height: 150px;
+        width: 250px;
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.2);
+        }
+        }
+    }
+    
+}

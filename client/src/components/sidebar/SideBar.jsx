@@ -11,7 +11,6 @@ import { PlaylistContext } from "../contexts/PlaylistContext";
 
 function SideBar({ userid, func }) {
   const [playlist, setPlaylist] = useContext(PlaylistContext);
-  console.log(playlist);
   return (
     <nav className="sidebar">
       <img className="sidebar__logo" src={logo} />
@@ -23,8 +22,11 @@ function SideBar({ userid, func }) {
           </Link>
         </li>
         <li className="sidebar__search">
+          <Link to="searchpage">
           <SearchOutlinedIcon />
           Search
+          </Link>
+       
         </li>
         <li>
           <Link className="sidebar__library" to="playlist">

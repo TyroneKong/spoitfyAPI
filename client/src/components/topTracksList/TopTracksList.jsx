@@ -25,7 +25,7 @@ const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useContext(CurrentTrac
         </p>
       </div>
 
-      {data.slice(0, 7).map((track, index) => {
+      {data.slice(0, 10).map((track, index) => {
         return (
           <div className="track" key={index}>
             <TopTracksCard

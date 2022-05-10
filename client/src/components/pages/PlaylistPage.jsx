@@ -10,7 +10,6 @@ function PlaylistPage({ currentPlaylistItem}) {
 
   useEffect(() => {
     getPlaylistTracks(currentPlaylistItem.id).then((response) => {
-      console.log(response.data.tracks.items);
       setData(response.data.tracks.items);
     });
   }, [currentPlaylistItem.id]);
@@ -21,8 +20,14 @@ function PlaylistPage({ currentPlaylistItem}) {
   return (
     <div className="playlistPage">
       <div className="playlistPage__container">
+        <div className="playlistPage__image-container">
         <img className="playlistPage__image" src={images}></img>
+      
+        </div>
+        <div className="playlistPage__name-container">
         <h1 className="playlistPage__name">{name}</h1>
+
+        </div>
       </div>
 
       <PlaylistPageTrackList data={data} />

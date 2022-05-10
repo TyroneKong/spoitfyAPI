@@ -12,7 +12,7 @@ export const ArtistInfoContextProvider = ({ children }) => {
   }, []);
 
   const fetchArtistInfo = () => {
-    getArtistInfo("1Xyo4u8uXC1ZmMpatF05PJ").then((response) => {
+    getArtistInfo("4iHNK0tOyZPYnBU7nGAgpQ").then((response) => {
       setArtistInfo(response.data);
       console.log(response.data);
     });
