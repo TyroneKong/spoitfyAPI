@@ -1,7 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ArtistTopTracksList from '../artistTopTracksList/ArtistTopTracksList'
+import { getArtistTopTracks } from '../spotify'
+
+
 
 function ArtistTopTracks({artist}) {
+
+useEffect(()=>{
+  artist!== null &&
+getArtistTopTracks(artist).then(response=>{
+  console.log(response.data)
+})
+},[])
+
+
   return (
     <div>ArtistTopTracks
 

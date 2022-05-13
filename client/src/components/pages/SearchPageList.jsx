@@ -15,23 +15,9 @@ function SearchPageList({data, artist, searchInput}) {
 
 
 
-// useEffect(()=>{
-//    artist!== null?
-//     getArtistInfo(artist).then(response=>{
-//         setArtistImage(response.data.images[0].url)
-//         setArtistName(response.data.name)
-      
-
-//     }).catch(err=>{
-//         console.log(err)
-//     })
-//     :console.log('no data')
-    
-    
-// },[searchInput])
-
 
 useEffect(()=>{
+    artist!== null &&
     getArtistAlbums(artist).then(response=>{
         setAlbumData(response.data.items)
         console.log(response.data.items)

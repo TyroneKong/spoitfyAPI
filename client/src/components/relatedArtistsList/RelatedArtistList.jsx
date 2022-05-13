@@ -10,6 +10,7 @@ const [relatedArtistData, setRelatedArtistData] = useState([])
 
 
   useEffect(()=>{
+    artist!==null &&
       getRelatedArtists(artist).then(response=>{
           console.log(response.data.artists)
           setRelatedArtistData(response.data.artists)
