@@ -1,6 +1,5 @@
 import "./App.css";
 import Login from "../src/components/Login";
-import SpotifyPlayer from "react-spotify-web-playback";
 import { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "../src/components/profile/Profile";
@@ -11,8 +10,7 @@ import PlaylistPage from "./components/pages/PlaylistPage";
 import SearchPage from "./components/pages/SearchPage"
 import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 import { PlaylistContextProvider } from "./components/contexts/PlaylistContext";
-
-
+import SpotifyPlayerApp from "./components/spotifyPlayer/SpotifyPlayer";
 
 
 //get request functions
@@ -118,24 +116,7 @@ function App() {
             </ArtistInfoContextProvider>
           </Router>
 
-          <div className="spotifyPlayer">
-            <SpotifyPlayer
-              className="spotifyPlayer"
-              styles={{
-                activeColor: "#fff",
-                bgColor: "#333",
-                color: "#fff",
-                loaderColor: "#fff",
-                trackArtistColor: "#ccc",
-                trackNameColor: "#fff",
-              }}
-              showSaveIcon={true}
-              autoPlay={true}
-              play={true}
-              token={token}
-              uris={[`spotify:track:${currentlyPlayingTrack}`]}
-            />
-          </div>
+        <SpotifyPlayerApp currentlyPlayingTrack={currentlyPlayingTrack} token={token}/>
         </>
       )}
     </div>

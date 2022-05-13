@@ -39,6 +39,8 @@
 }
 
 .TopTracksList {
+overflow-y: auto;
+height: 800px;
   &__heading {
     display: flex;
     flex-direction: column;
