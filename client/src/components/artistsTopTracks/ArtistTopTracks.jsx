@@ -1,24 +1,27 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import ArtistTopTracksList from '../artistTopTracksList/ArtistTopTracksList'
 import { getArtistTopTracks } from '../spotify'
-
+import './ArtistTopTracks.scss'
 
 
 function ArtistTopTracks({artist}) {
+const [artistTopTracks, setArtistTopTracks] = useState([])
+
+
 
 useEffect(()=>{
   artist!== null &&
 getArtistTopTracks(artist).then(response=>{
-  console.log(response.data)
+  console.log(response.data.tracks)
+ setArtistTopTracks(response.data.tracks)
 })
-},[])
+},[artist])
 
 
   return (
-    <div>ArtistTopTracks
+    <div className='artistTopTracks'>
 
-
-<ArtistTopTracksList artist={artist}/>
+<ArtistTopTracksList artist={artistTopTracks}/>
 
     </div>
   )

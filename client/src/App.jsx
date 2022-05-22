@@ -7,11 +7,11 @@ import SideBar from "./components/sidebar/SideBar";
 import ArtistInfo from "./components/artistInfo/ArtistInfo";
 import UserPlaylist from "./components/userPlayList/UserPlayList";
 import PlaylistPage from "./components/pages/PlaylistPage";
-import SearchPage from "./components/pages/SearchPage"
+import SearchPage from "./components/pages/SearchPage";
+import { Logout } from "./components/Logout";
 import { ArtistInfoContextProvider } from "./components/contexts/ArtistInfoContext";
 import { PlaylistContextProvider } from "./components/contexts/PlaylistContext";
 import SpotifyPlayerApp from "./components/spotifyPlayer/SpotifyPlayer";
-
 
 //get request functions
 
@@ -31,9 +31,7 @@ function App() {
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
   const [followers, setFollowers] = useState(null);
-  const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState(
-    ""
-  );
+  const [currentlyPlayingTrack, setCurrentlyPlayingTrack] = useState("");
   const [userid, setUserId] = useState(null);
   const [currentPlaylistitem, setCurrentPlaylistItem] = useState([]);
 
@@ -68,12 +66,7 @@ function App() {
         <Login className="login--btn" />
       ) : (
         <>
-          <div className="logout">
-            <button className="logout--btn" onClick={logout}>
-              <img className="logout--btn__image" src={picture} />
-              Log out
-            </button>
-          </div>
+          <Logout logout={logout} picture={picture} />
 
           <Router>
             <ArtistInfoContextProvider>
@@ -109,14 +102,17 @@ function App() {
                         />
                       }
                     />
-                    <Route path="searchpage" element={<SearchPage/>}/>
+                    <Route path="searchpage" element={<SearchPage />} />
                   </Routes>
                 </CurrentTrackContext.Provider>
               </PlaylistContextProvider>
             </ArtistInfoContextProvider>
           </Router>
 
-        <SpotifyPlayerApp currentlyPlayingTrack={currentlyPlayingTrack} token={token}/>
+          <SpotifyPlayerApp
+            currentlyPlayingTrack={currentlyPlayingTrack}
+            token={token}
+          />
         </>
       )}
     </div>

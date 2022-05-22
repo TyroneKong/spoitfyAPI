@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./SideBar.scss";
-import logo from "../../../../images/spotifylogo.png";
+import logo from "../../../../images/spotify.png";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
@@ -23,10 +23,9 @@ function SideBar({ userid, func }) {
         </li>
         <li className="sidebar__search">
           <Link to="searchpage">
-          <SearchOutlinedIcon />
-          Search
+            <SearchOutlinedIcon />
+            Search
           </Link>
-       
         </li>
         <li>
           <Link className="sidebar__library" to="playlist">

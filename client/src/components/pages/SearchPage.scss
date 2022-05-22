@@ -1,13 +1,17 @@
 .searchPage{
-    height: 92vh;
+   
     margin-left: 250px;
+    height: 100vh;
    
     &__Input{
+        border-radius: 15px;
         margin-bottom:50px ;
         width: 500px;
         height: 30px;
     &-container{
-        margin-top: -1700px;
+
+        margin-top: -1350px;
+        // border: 2px solid red;
     }
     }
     &__artist-image{

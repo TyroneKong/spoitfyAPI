@@ -1,3 +1,4 @@
+import { accordionSummaryClasses } from "@mui/material";
 import axios from "axios";
 
 const LOCALSTORAGE_KEYS = {
@@ -12,7 +13,7 @@ const LOCALSTORAGE_KEYS = {
 const LOCALSTORAGE_VALUES = {
   accessToken: window.localStorage.getItem(LOCALSTORAGE_KEYS.accessToken),
   refreshToken: window.localStorage.getItem(LOCALSTORAGE_KEYS.refreshToken),
-  expireTime: window.localStorage.getItem(LOCALSTORAGE_KEYS.expiresTime),
+  expireTime: window.localStorage.getItem(LOCALSTORAGE_KEYS.expireTime),
   timestamp: window.localStorage.getItem(LOCALSTORAGE_KEYS.timestamp),
 };
 
@@ -159,15 +160,18 @@ export const getArtistInfo = (id) => axios.get(`/artists/${id}`);
 
 // get artist albums
 
-export const getArtistAlbums = (id)=> axios.get(`/artists/${id}/albums?limit=50`)
+export const getArtistAlbums = (id) =>
+  axios.get(`/artists/${id}/albums?limit=50`);
 
 // get related artists
 
-export const getRelatedArtists=(id)=> axios.get(`/artists/${id}/related-artists`)
+export const getRelatedArtists = (id) =>
+  axios.get(`/artists/${id}/related-artists`);
 
 //  get artists top tracks
 
-export const getArtistTopTracks=(id)=> axios.get(`/artists/${id}/top-tracks`)
+export const getArtistTopTracks = (id) =>
+  axios.get(`/artists/${id}/top-tracks?market=GB`);
 
 //get user playlist
 
@@ -187,6 +191,12 @@ export const getFollowedArtist = () => axios.get("/me/following?type=artist");
 export const getPlaylistTracks = (playlist_id) =>
   axios.get(`/playlists/${playlist_id}`);
 
-  //get search item
+//get search item
 
-  export const getSearchItem=(input)=> axios.get(`/search?q=artist:${input}&type=track`)
+export const getSearchItem = (input) =>
+  axios.get(`/search?q=artist:${input}&type=track`);
+
+// get featured playlist
+
+export const getFeaturedPlaylist = () =>
+  axios.get("/browse/featured-playlists?country=US");

@@ -5,14 +5,11 @@ import TopTracks from "../topTracks/TopTracks";
 import PublicPlaylist from "../publicPlaylist/PublicPlaylist";
 import { getTopArtists, getTopTracks } from "../spotify";
 
-
-
-function Profile({ name, picture, followers}) {
+function Profile({ name, picture, followers }) {
   const [artists, setArtists] = useState([]);
   const [tracks, setTracks] = useState([]);
   const [topArtistsDataReceived, setTopArtistsDataReceived] = useState(false);
   const [topTracksDataReceived, setTopTracksDataReceived] = useState(false);
-
 
   // function to convert milliseconds to minutes
   function msToTime(s) {
@@ -29,8 +26,6 @@ function Profile({ name, picture, followers}) {
     fetchArtists();
     fetchData();
   }, []);
-
-
 
   //get top artists data
   const fetchArtists = () => {
@@ -52,7 +47,6 @@ function Profile({ name, picture, followers}) {
       .then((response) => {
         response.status === 200 && setTracks(response.data.items),
           setTopTracksDataReceived(true);
-          console.log(response.data.items)
       })
 
       .catch((err) => console.log(err));
@@ -68,11 +62,7 @@ function Profile({ name, picture, followers}) {
       {topArtistsDataReceived && topTracksDataReceived ? (
         <>
           <TopArtists artist={artists} />
-          <TopTracks
-    
-            tracks={tracks}
-            duration={msToTime}
-          />
+          <TopTracks tracks={tracks} duration={msToTime} />
         </>
       ) : null}
       <PublicPlaylist />

@@ -9,11 +9,7 @@ function Playlist({ playlistData }) {
         <h1>Liked Songs</h1>{" "}
       </div>
       {playlistData.map((data, index) => {
-        return (
-          <div key={index}>
-            <PlaylistCards data={data} />
-          </div>
-        );
+        return <PlaylistCards key={index} data={data} />;
       })}
     </div>
   );
