@@ -20,7 +20,7 @@ function PublicPlaylist() {
     <div className="publicPlaylist">
       <div className="publicPlaylist__container">
         <div className="publicPlaylist__title">
-          <h3>Public Playlist</h3>
+          <h3 className="publicPlaylist__heading">Public Playlist</h3>
         </div>
         <PublicPlaylist_list publicPlaylistData={publicPlaylistData} />
       </div>

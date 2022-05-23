@@ -6,6 +6,9 @@
 
   @include responsive(mobile){
     font-size: 50%;
+    margin: 0px;
+    flex-direction: column;
+    justify-content: center;
   }
   @include responsive(tablet-port){
     font-size: 60%;
@@ -16,11 +19,16 @@
   display: flex;
 
   flex-direction: column;
-  margin: -1380px 0px 0px 260px;
+  margin: -1000px 0px 0px 260px;
   &__image {
     height: 180px;
     width: 180px;
     border-radius: 150px;
+    @include responsive(mobile){
+      height: 100px;
+      width: 100px;
+    
+    }
 
     
     
@@ -28,15 +36,24 @@
   }
   &__name {
     font-size: 70px;
+    @include responsive(mobile){
+      font-size: 24px;
+    }
   }
   &__name-container {
-    margin: -140px 0px 0px -270px;
+    @include responsive(mobile){}
   }
   &__image-container {
     margin-top: -400px;
     height: 450px;
     align-items: center;
     display: flex;
+    @include responsive(mobile){
+      margin-top: 0px;
+      flex-direction: column;
+      justify-content: center;
+      height: 230px;
+    }
     // background-color: rgb(112, 56, 48);
     background: linear-gradient(#e66465, rgba(238, 205, 17, 0.333));
   }

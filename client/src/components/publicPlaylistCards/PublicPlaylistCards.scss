@@ -1,6 +1,12 @@
+@use '../../styles//partials/mixins' as *;
+
+
 .publicPlaylist__card-container {
   height: 200px;
   width: 150px;
+  @include responsive(mobile){
+   display: none;
+  }
 
   background-color: #151111;
   &:hover {
@@ -9,4 +15,7 @@
 }
 .publicPlaylist__card-image {
   width: 120px;
+  @include responsive(mobile){
+    width: 100px;
+  }
 }

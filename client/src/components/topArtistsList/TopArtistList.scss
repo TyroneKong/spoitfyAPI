@@ -1,4 +1,9 @@
+@use '../../styles/partials/mixins'as *;
+
 .topArtist {
+  @include responsive(mobile){
+    display: none;
+  }
   display: flex;
   column-gap: 13px;
   justify-content: flex-start;

@@ -1,7 +1,14 @@
+@use '../../styles/partials/mixins' as *;
+
 .publicPlaylist {
   display: flex;
 
   &__title {
     display: flex;
+  }
+  &__heading{
+    @include responsive(mobile){
+      display: none;
+    }
   }
 }

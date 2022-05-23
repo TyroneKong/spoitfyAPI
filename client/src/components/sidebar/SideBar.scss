@@ -1,11 +1,16 @@
+@use '../../styles/partials/mixins' as *;
+
 .sidebar {
+@include responsive(mobile){
+  display: none;
+}
   background-color: black;
-;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 250px;
-  height: 100%;
+  height: 100vh;
   font-size: 12px;
   margin-top: -30px;
   &__logo {

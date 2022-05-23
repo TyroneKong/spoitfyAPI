@@ -1,7 +1,12 @@
+@use '../../styles/partials/mixins' as *;
+
 .searchPage{
-   
+    margin-top: -1000px;
     margin-left: 250px;
     height: 100vh;
+    @include responsive(mobile){
+        margin-top: 0px;
+    }
    
     &__Input{
         border-radius: 15px;
@@ -10,8 +15,9 @@
         height: 30px;
     &-container{
 
-        margin-top: -1350px;
+        
         // border: 2px solid red;
+       
     }
     }
     &__artist-image{

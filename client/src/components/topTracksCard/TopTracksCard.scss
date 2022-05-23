@@ -1,0 +1,9 @@
+@use '../../styles/partials/mixins' as *;
+.track__container{
+@include responsive(mobile){
+
+    flex-direction: column;
+    margin-top: 50px;
+
+}
+}
