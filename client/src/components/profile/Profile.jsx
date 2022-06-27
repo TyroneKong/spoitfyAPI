@@ -28,28 +28,27 @@ function Profile({ name, picture, followers }) {
   }, []);
 
   //get top artists data
-  const fetchArtists = () => {
-    getTopArtists()
-      .then(
-        (response) =>
-          response.status === 200 && setArtists(response.data.items),
-        setTopArtistsDataReceived(true)
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+  const fetchArtists = async () => {
+    try {
+      const response = await getTopArtists();
+      response.status === 200 && setArtists(response.data.items),
+        setTopArtistsDataReceived(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //get top tracks data
 
-  const fetchData = () => {
-    getTopTracks()
-      .then((response) => {
-        response.status === 200 && setTracks(response.data.items),
-          setTopTracksDataReceived(true);
-      })
+  const fetchData = async () => {
+    try {
+      const response = await getTopTracks();
 
-      .catch((err) => console.log(err));
+      response.status === 200 && setTracks(response.data.items),
+        setTopTracksDataReceived(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

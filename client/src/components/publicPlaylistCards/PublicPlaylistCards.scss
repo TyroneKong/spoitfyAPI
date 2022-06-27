@@ -1,11 +1,10 @@
-@use '../../styles//partials/mixins' as *;
-
+@use "../../styles//partials/mixins" as *;
 
 .publicPlaylist__card-container {
   height: 200px;
   width: 150px;
-  @include responsive(mobile){
-   display: none;
+  @include responsive(mobile) {
+    display: none;
   }
 
   background-color: #151111;
@@ -15,7 +14,7 @@
 }
 .publicPlaylist__card-image {
   width: 120px;
-  @include responsive(mobile){
+  @include responsive(mobile) {
     width: 100px;
   }
 }

@@ -47,9 +47,9 @@
 
 .TopTracksList {
 overflow-y: auto;
-height: 800px;
+height: 600px;
 @include responsive(mobile){
-  height: 90vh;
+  height: 60vh;
 }
   &__heading {
     display: flex;
