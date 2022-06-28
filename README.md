@@ -6,7 +6,15 @@ App to allow users to view their music library and play music
 
 This app requires a client_id and client_secret to run.
 
+The steps can be found here https://developer.spotify.com/documentation/general/guides/authorization/app-settings/
 
+Once you have a client_id and client_secret, create a .env file and paste 
+
+CLIENT_ID = XXXXX
+CLIENT_SECRET = XXXX
+
+
+Upon logging in, user will have access to their music library and playlists. The user will also be able to search for artists.
 
 More content to be added...
 
@@ -27,11 +35,8 @@ More content to be added...
 
 #### Desktop
 
-![](./images/spotifyapp1.png)
-![](./images/spotifyapp2.png)
-![](./images/spotifyapp13.png)
-![](./images/spotifyapp10.png)
-![](./images/spotifyapp12.png)
+![](./images/sportifypastel2.png)
+![](./images/spotifypastel3.png)
 
 
 
@@ -43,6 +48,7 @@ More content to be added...
 - React
 - Node
 - Express
+- Spotify API
 
 
 
