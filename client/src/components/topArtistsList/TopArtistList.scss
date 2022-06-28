@@ -1,18 +1,23 @@
-@use '../../styles/partials/mixins'as *;
+@use "../../styles/partials/mixins" as *;
 
 .topArtist {
-  @include responsive(mobile){
+  @include responsive(mobile) {
     display: none;
   }
   display: flex;
   column-gap: 13px;
   justify-content: flex-start;
-  margin-left: -200px 190px;
+  margin-top: -10px;
+  flex-wrap: wrap;
+  row-gap: 20px;
   &__image-container {
-    background-color: #151111;
-
     height: 200px;
     width: 150px;
+    border: 2px solid grey;
+    box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
+    background-color: rgb(253, 253, 242);
+    border-radius: 12px;
+
     &:hover {
       background-color: rgba(128, 128, 128, 0.2);
     }

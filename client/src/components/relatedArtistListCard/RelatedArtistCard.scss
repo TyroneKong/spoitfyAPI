@@ -1,15 +1,18 @@
-.relatedartist__Image{
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
+.relatedartist__Image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
 
-    &-container{
-        background-color: #151111;
-    
-        height: 250px;
-        width: 200px;
-        &:hover {
-          background-color: rgba(128, 128, 128, 0.2);
-        }
+  &-container {
+    background-color: rgb(253, 253, 242);
+
+    height: 250px;
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
+
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.2);
     }
+  }
 }

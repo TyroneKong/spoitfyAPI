@@ -1,41 +1,41 @@
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/mixins" as *;
 
-.searchPage{
-    margin-top: -1000px;
-    margin-left: 250px;
-    height: 100vh;
-    @include responsive(mobile){
-        margin-top: 0px;
-    }
-   
-    &__Input{
-        border-radius: 15px;
-        margin-bottom:50px ;
-        width: 500px;
-        height: 30px;
-    &-container{
+.searchPage {
+  margin-top: -1000px;
+  margin-left: 300px;
+  height: 100vh;
+  @include responsive(mobile) {
+    margin-top: 0px;
+  }
 
-        
-        // border: 2px solid red;
-       
+  &__Input {
+    border-radius: 15px;
+    margin-bottom: 50px;
+    min-width: 800px;
+    height: 70px;
+    &-container {
+      // border: 2px solid red;
     }
+  }
+  &__Input::placeholder {
+    font-size: 20px;
+  }
+  &__artist-image {
+    margin-left: 20px;
+    border-radius: 100px;
+    width: 180px;
+    height: 180px;
+    &-container {
+      margin-left: 20px;
+      display: flex;
+      background-color: rgb(255, 246, 230);
+      border-radius: 12px;
+
+      height: 200px;
+      width: 400px;
+      &:hover {
+        background-color: rgba(128, 128, 128, 0.2);
+      }
     }
-    &__artist-image{
-        margin-left: 20px;        
-        border-radius: 100px;
-        width: 90px;
-        height: 90px;
-        &-container{
-            margin-left: 20px;
-            display: flex;
-            background-color: #181818;
-    
-        height: 200px;
-        width: 400px;
-        &:hover {
-          background-color: rgba(128, 128, 128, 0.2);
-        }
-        }
-    }
-    
+  }
 }

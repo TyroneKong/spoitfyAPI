@@ -1,20 +1,17 @@
 .searchPage__album {
-
-&-image{
+  &-image {
     width: 150px;
-    &-container{
-        background-color: #151111;
-    
-        height: 250px;
-        width: 200px;
-        &:hover {
-          background-color: rgba(128, 128, 128, 0.2);
-        }
+    border-radius: 80px;
+    &-container {
+      height: 250px;
+      width: 200px;
+      border: 2px solid grey;
+      box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
+      background-color: rgb(198, 182, 214);
+
+      &:hover {
+        background-color: rgba(128, 128, 128, 0.2);
+      }
     }
+  }
 }
-
-
-}
-
-
-

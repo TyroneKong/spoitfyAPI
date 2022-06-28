@@ -6,7 +6,7 @@ function ArtistTopTracksList({ artist }) {
 
   return (
     <div>
-      ArtistTopTracksList
+      <h2>Artist Top TracksList</h2>
       {artist.slice(0, 4).map((tracks, index) => {
         return (
           <ArtistTopTracksCard

@@ -1,6 +1,12 @@
 .playlistPageTrackListCard {
   display: flex;
   column-gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
+  background-color: rgb(253, 253, 242);
+  border-radius: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  cursor: pointer;
 
   &__image {
     width: 80px;

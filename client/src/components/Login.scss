@@ -1,16 +1,17 @@
 .login {
-  border: 2px solid red;
   height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   &__btn {
     width: 200px;
-    height: 50px;
+    height: 60px;
     cursor: pointer;
     color: black;
     font-weight: bold;
-    background-color: #1ed760;
+    background-color: rgb(242, 231, 201);
+    box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
+
     border-radius: 26px;
   }
 }

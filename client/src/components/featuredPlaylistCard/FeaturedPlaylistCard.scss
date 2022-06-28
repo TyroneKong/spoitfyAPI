@@ -1,3 +1,7 @@
-.featuredPlaylist__image{
-    width: 150px;
+.featuredPlaylist__image {
+  width: 150px;
+  &-container {
+    border: 2px solid grey;
+    border-radius: 12px;
+  }
 }

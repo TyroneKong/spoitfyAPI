@@ -4,14 +4,13 @@
   @include responsive(mobile) {
     display: none;
   }
-  background-color: black;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   max-height: 1200px;
   width: 250px;
-  font-size: 12px;
+  font-size: 10px;
   margin-top: 50px;
   &__logo {
     width: 170px;
@@ -23,7 +22,7 @@
     list-style: none;
   }
   &__home {
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     column-gap: 10px;
@@ -35,7 +34,7 @@
     column-gap: 10px;
   }
   &__library {
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     column-gap: 10px;
@@ -49,7 +48,7 @@
       text-decoration: none;
     }
     &-playlist {
-      color: white;
+      color: black;
       text-decoration: none;
       &:hover {
         font-weight: bold;

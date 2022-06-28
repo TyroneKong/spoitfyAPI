@@ -5,11 +5,16 @@
   font-size: 13px;
 
   &__container {
+    border: 2px solid grey;
+    box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
+    border-radius: 12px;
+    background-color: rgb(253, 253, 242);
   }
 
   &__card {
     &-image {
       width: 150px;
+      cursor: pointer;
     }
   }
   &__name {

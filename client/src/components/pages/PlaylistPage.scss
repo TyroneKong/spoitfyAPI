@@ -13,7 +13,8 @@
 
   &__image {
     width: 250px;
-    &-container{
+
+    &-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -21,7 +22,7 @@
   }
   &__name {
     font-size: 80px;
-    &-container{
+    &-container {
       display: flex;
       align-items: center;
     }

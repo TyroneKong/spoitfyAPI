@@ -1,10 +1,8 @@
-.searchPage__list{
-    margin-top: 200px;
-    // border: 2px solid red;
-   display: flex;
-    column-gap: 20px;
-   row-gap: 40px;
-
-    
-   
+.searchPage__list {
+  margin-top: 200px;
+  // border: 2px solid red;
+  display: flex;
+  column-gap: 20px;
+  row-gap: 40px;
+  flex-wrap: wrap;
 }

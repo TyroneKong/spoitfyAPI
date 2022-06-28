@@ -1,13 +1,14 @@
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/mixins" as *;
 
 .track {
   display: flex;
-  align-items: center;
-  background-color: rgb(26, 22, 22);
-  height: 70px;
+  height: 80px;
   font-size: 13px;
   text-align: left;
-
+  margin-top: 20px;
+  @include responsive(mobile) {
+    height: 200px;
+  }
   &:hover {
     background-color: rgba(128, 128, 128, 0.2);
   }
@@ -15,13 +16,15 @@
     display: flex;
     align-items: center;
     column-gap: 20px;
+    border: 2px solid grey;
+    background-color: rgb(214, 141, 150);
+    border-radius: 12px;
   }
   &__container {
     display: flex;
     justify-content: space-between;
     width: 900px;
-    @include responsive(mobile){
-      
+    @include responsive(mobile) {
       width: 100vw;
     }
   }
@@ -34,7 +37,7 @@
     display: flex;
   }
   &__artist {
-    width: 200px;
+    width: 260px;
 
     &-name {
       font-weight: bold;
@@ -46,11 +49,11 @@
 }
 
 .TopTracksList {
-overflow-y: auto;
-height: 600px;
-@include responsive(mobile){
-  height: 60vh;
-}
+  overflow-y: auto;
+  height: 1400px;
+  @include responsive(mobile) {
+    height: 60vh;
+  }
   &__heading {
     display: flex;
     flex-direction: column;
@@ -67,8 +70,7 @@ height: 600px;
     font-size: 12px;
   }
 }
-h3{
-  @include responsive(mobile){
-  
+h3 {
+  @include responsive(mobile) {
   }
 }

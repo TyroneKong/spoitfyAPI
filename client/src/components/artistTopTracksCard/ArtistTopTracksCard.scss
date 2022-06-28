@@ -1,11 +1,11 @@
-.artistTopTracks__card{
-   
-    &-image{
-        width: 60px;
-        &-container{
-            display: flex;
-            align-items: center;
-            column-gap: 20px;
-        }
+.artistTopTracks__card {
+  margin-left: 100px;
+  &-image {
+    width: 80px;
+    &-container {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
     }
+  }
 }

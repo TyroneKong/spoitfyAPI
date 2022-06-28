@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import "./Login.scss";
 
 const Login = () => {

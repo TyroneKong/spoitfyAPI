@@ -13,7 +13,7 @@ function SideBar({ userid, func }) {
   const [playlist, setPlaylist] = useContext(PlaylistContext);
   return (
     <nav className="sidebar">
-      <img className="sidebar__logo" src={logo} />
+      {/* <img className="sidebar__logo" src={logo} /> */}
       <ul className="sidebar__list">
         <li>
           <Link to="/" className="sidebar__home">
@@ -45,7 +45,7 @@ function SideBar({ userid, func }) {
                   className="sidebar__library-playlist"
                   to="playlistpage"
                 >
-                  <p>{data.name}</p>
+                  <h2>{data.name}</h2>
                 </Link>
               </li>
             </div>

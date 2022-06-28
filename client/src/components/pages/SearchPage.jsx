@@ -48,7 +48,7 @@ function SearchPage() {
           className="searchPage__Input"
           onChange={(e) => handleChange(e)}
           type="text"
-          placeholder="Enter artist or album"
+          placeholder="Enter artist or album..."
         ></input>
 
         <div className="searchPage__artist-image-container">

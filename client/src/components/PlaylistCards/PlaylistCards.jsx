@@ -7,7 +7,7 @@ function PlaylistCards({ data }) {
       <div className="playlist__card">
         <img className="playlist__card-image" src={data.images[0].url}></img>
         <div className="playlist__name">
-          <p>{data.name}</p>
+          <h3>{data.name}</h3>
         </div>
       </div>
     </div>

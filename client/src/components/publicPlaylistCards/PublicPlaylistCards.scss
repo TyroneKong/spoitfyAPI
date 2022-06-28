@@ -6,15 +6,23 @@
   @include responsive(mobile) {
     display: none;
   }
+  border: 2px solid grey;
+  background-color: rgb(153, 109, 153);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.75) 0rem 0.3125rem 0.9375rem;
 
-  background-color: #151111;
   &:hover {
     background-color: rgba(128, 128, 128, 0.2);
   }
 }
 .publicPlaylist__card-image {
   width: 120px;
+  border-radius: 50px;
   @include responsive(mobile) {
     width: 100px;
   }
+}
+
+p {
+  font-size: 16px;
 }
